@@ -108,7 +108,7 @@ function Header() {
             color="#1A1B1D"
             width="120px"
             height="48px"
-            text="로그인"
+            text="시작하기"
             fontSize="18px"
             type=""
             hoverColor="#1CE047"

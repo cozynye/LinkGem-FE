@@ -35,7 +35,7 @@ function GemLink({
   description,
   memos,
   url,
-  imageUrl = '/images/test.jpeg',
+  imageUrl,
   createDate,
   isFavorites,
   id,
@@ -45,6 +45,7 @@ function GemLink({
 
   const [isBookMark, setIsBookMark] = useState(isFavorites);
   const [isEtcCon, setIsEtcCon] = useState(false);
+
   const copyToClipboard = (val: string) => {
     const element = document.createElement('textarea');
     element.value = val;
@@ -65,6 +66,9 @@ function GemLink({
       setIsCopy(false);
     }, 3000);
   };
+
+  console.log('imageUrl');
+  console.log(imageUrl);
 
   const handleFavorite = async () => {
     try {
@@ -105,7 +109,12 @@ function GemLink({
       <ImageContainer>
         <Link href={url || 'https://www.naver.com'}>
           <a target="_blank">
-            <img alt="link-image" src={imageUrl} width={342} height={180} />
+            <img
+              alt="link-image"
+              src={imageUrl || '/images/link-default-image.svg'}
+              width={320}
+              height={180}
+            />
           </a>
         </Link>
       </ImageContainer>
