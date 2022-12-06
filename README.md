@@ -34,4 +34,4 @@
 - 더미컴포넌트와 스타일 컴포넌트는 아무리 간단한 컴포넌트여도 꼭 분리합니다. 스타일 컴포넌트는 더미컴포넌트의 컴포넌트 명을 딴 이후 style을 붙여서 명명하고 확장자명은 ts입니다. `Example.style.ts`
 - interface 또는 type은 해당 interface가 다른 컴포넌트에서도 사용할 가능성이 있다면 `Example.type.ts`와 같이 파일로 분리합니다.
 
-배포테스트
+vercel test
