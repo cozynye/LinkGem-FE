@@ -7,6 +7,8 @@ import { IPropsGemboxModal } from './gemboxModal.types';
 import { renderComponents } from 'utils/commons';
 
 const GemboxModal = (props: IPropsGemboxModal) => {
+  console.log('props!!!!!!!!!');
+  console.log(props);
   return (
     <Modal
       aria-labelledby="transition-modal-title"
@@ -21,7 +23,7 @@ const GemboxModal = (props: IPropsGemboxModal) => {
     >
       <Fade in={props.open}>
         <Box sx={S.style}>
-          <img
+          {/* <img
             src="/icons/closeIcon.jpg"
             style={{
               width: '24px',
@@ -31,9 +33,9 @@ const GemboxModal = (props: IPropsGemboxModal) => {
               right: 28,
             }}
             onClick={props.onClose}
-          />
+          /> */}
           <S.GemboxWrapper>
-            <S.ModalTitle>{props.title}</S.ModalTitle>
+            {props.title && <S.ModalTitle>{props.title}</S.ModalTitle>}
             <S.RenderBox>{renderComponents(props.Component)}</S.RenderBox>
           </S.GemboxWrapper>
         </Box>

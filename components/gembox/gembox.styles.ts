@@ -219,7 +219,7 @@ export const style = {
   // width: '450px',
   // height: '588px',
   bgcolor: 'background.paper',
-  borderRadius: '24px',
+  borderRadius: '8px',
   boxShadow: 24,
   overflow: 'hidden',
   boxSizing: 'border-box',
@@ -253,8 +253,6 @@ export const GemWrapper = styled.div`
 export const GemCard = styled.div`
   width: 140px;
   height: 170px;
-  margin-left: 24px;
-  margin-bottom: 25px;
 `;
 
 export const GemImg = styled.img`
@@ -301,7 +299,6 @@ export const WriteWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 360px;
   /* padding: 60px 80px 0px 80px; */
 `;
 
@@ -309,6 +306,7 @@ export const WriteList = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin-bottom: 16px;
 `;
 
 export const CreateWrapper = styled(WriteWrapper)`
@@ -316,7 +314,7 @@ export const CreateWrapper = styled(WriteWrapper)`
 `;
 
 export const GemModalText = styled.span`
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   font-family: 'Spoqa Han Sans';
   font-size: 14px;
   letter-spacing: -0.02em;
@@ -418,20 +416,19 @@ export const ModalClose = styled(CloseOutlined)`
 export const DeleteWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 250px;
-  margin-top: 120px;
 `;
 
 export const DeleteTitle = styled.span`
-  font-family: 'Spoqa Han Sans';
+  font-family: 'Spoqa Han Sans Neo';
+  font-style: normal;
   font-weight: 700;
-  font-size: 32px;
+  font-size: 20px;
+  line-height: 150%;
   text-align: center;
   letter-spacing: -0.02em;
-  color: #1a1b1d;
+  margin-top: 16px;
 `;
 
 export const DeleteText = styled.div`
@@ -441,10 +438,12 @@ export const DeleteText = styled.div`
   text-align: center;
   letter-spacing: -0.02em;
   color: #1a1b1d;
+  margin-top: 4px;
 `;
 
 export const ButtonWrapper = styled.div`
-  width: 50%;
+  margin-top: 32px;
+  width: 100%;
   display: flex;
   justify-content: space-around;
 `;

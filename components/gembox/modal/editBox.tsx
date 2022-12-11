@@ -3,6 +3,7 @@ import { ChangeEvent, useState } from 'react';
 import { useMutation } from 'utils/useMutation';
 import { useQuery } from 'utils/useQuery';
 import * as S from '../gembox.styles';
+import { LinkSaveButton } from 'components/Setting/Setting.style';
 
 const EditBox = (props: IEditBoxProps) => {
   const { data } = useQuery(`gemboxes/${props.selectedId}`);
@@ -63,6 +64,27 @@ const EditBox = (props: IEditBoxProps) => {
         />
         <S.ErrorMessage>{error}</S.ErrorMessage>
       </S.WriteList>
+      <S.ButtonWrapper>
+        <LinkSaveButton
+          color="#616163"
+          bgColor="#FFFFFF"
+          onClick={() => props.setIsDelete(false)}
+          dif={'1'}
+          width="66px"
+          height="34px"
+        >
+          다시 생각할게요
+        </LinkSaveButton>
+        <LinkSaveButton
+          bgColor="#5200FF"
+          color="#FFFFFF"
+          width="66px"
+          height="34px"
+          onClick={onClickEdit}
+        >
+          저장
+        </LinkSaveButton>
+      </S.ButtonWrapper>
       <S.GemBoxButton
         style={{ width: '97px', height: '55px', padding: '16px 32px' }}
         onClick={onClickEdit}

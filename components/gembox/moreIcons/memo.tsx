@@ -4,6 +4,7 @@ import { useMutation } from 'utils/useMutation';
 import { ChangeEvent, useState } from 'react';
 // import { DeleteOutlined } from '@ant-design/icons';
 import { IMemoIconProps } from './gemboxIcon.types';
+import { LinkSaveButton } from 'components/Setting/Setting.style';
 
 const MemoIcon = (props: IMemoIconProps) => {
   const [memo, setMemo] = useState('');
@@ -53,7 +54,26 @@ const MemoIcon = (props: IMemoIconProps) => {
                 <S.DeleteText>삭제한 메모는 복구 할 수 없어요</S.DeleteText>
               </div>
               <S.ButtonWrapper>
-                <S.GemBoxButton
+                <LinkSaveButton
+                  color="#616163"
+                  bgColor="#FFFFFF"
+                  onClick={() => setIsMemoDelete(false)}
+                  dif={'1'}
+                  width="122px"
+                  height="42px"
+                >
+                  다시 생각할게요
+                </LinkSaveButton>
+                <LinkSaveButton
+                  bgColor="#5200FF"
+                  color="#FFFFFF"
+                  width="122px"
+                  height="42px"
+                  onClick={onClickMemo}
+                >
+                  네, 삭제할게요
+                </LinkSaveButton>
+                {/* <S.GemBoxButton
                   onClick={() => setIsMemoDelete(false)}
                   style={{ padding: '2vh 1.2vw', backgroundColor: '#0F0223' }}
                 >
@@ -64,7 +84,7 @@ const MemoIcon = (props: IMemoIconProps) => {
                   style={{ padding: '2vh 1.2vw' }}
                 >
                   네, 삭제할게요
-                </S.GemBoxButton>
+                </S.GemBoxButton> */}
               </S.ButtonWrapper>
             </S.MemoDeleteWrapper>
           ) : (

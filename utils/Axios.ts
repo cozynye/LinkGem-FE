@@ -26,7 +26,7 @@ Axios.interceptors.request.use(
     return Promise.reject(error);
   }
 );
-
+// TODO 리이슈 하고 재요청 하는 과정중 content-type 에러 확인
 Axios.interceptors.response.use(
   (response) => {
     return response;
@@ -62,8 +62,10 @@ Axios.interceptors.response.use(
         localStorage.setItem('accessToken', reAccessToken);
         originalRequest.headers = {
           Authorization: reAccessToken,
+          ContentType: 'application/json; charset=UTF-8',
         };
         console.log('액세스토큰 요청 완료');
+        console.log('originalRequest', originalRequest);
         return axios(originalRequest);
       } catch (error: any) {
         // TODO : reissue 케이스 추가해야함 , mygembox api 요청 500에러 여기에 캐치됨
