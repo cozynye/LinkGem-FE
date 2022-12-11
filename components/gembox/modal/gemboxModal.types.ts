@@ -7,6 +7,7 @@ export interface IDeleteBoxProps {
 }
 
 export interface IEditBoxProps {
+  setIsDelete?: any;
   selectedId: number;
   isEdit: boolean;
   setIsEdit: Dispatch<SetStateAction<boolean>>;
