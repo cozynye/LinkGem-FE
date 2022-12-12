@@ -14,10 +14,6 @@ interface IHeaderLinkSave {
   isLinkSave: boolean;
 }
 
-interface IAlarmModal {
-  isAlarmModal: boolean;
-}
-
 interface ISettingModal {
   isSettingModal: boolean;
 }
@@ -185,8 +181,6 @@ export const AlarmImage = styled.div`
   justify-content: center;
   width: 26px;
   height: 28px;
-  margin-left: 26px;
-  margin-right: 26px;
   display: flex;
 
   &:hover {
@@ -409,87 +403,13 @@ export const SettingModal = styled.div<ISettingModal>`
 
 export const AlarmBox = styled.div`
   position: relative;
-`;
 
-export const AlramModal = styled.div<IAlarmModal>`
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  top: 50px;
-  right: 5px;
-  width: 300px;
-  padding: 20px 16px 20px 16px;
-
-  background: #ffffff;
-
-  z-index: 1;
-  /* shadow */
-  color: black;
-  box-shadow: 0px 4px 10px rgba(78, 78, 78, 0.15);
-  border-radius: 8px;
-  animation: 0.7s ${(props) => (props.isAlarmModal ? 'showUp' : 'showOut')};
-
-  @keyframes showUp {
-    0% {
-      transform: translate(0, -10px);
-    }
-    100% {
-      transform: translate(0, 0px);
-    }
-  }
-  @keyframes showOut {
-    0% {
-      transform: translate(0, 0);
-    }
-    100% {
-      transform: translate(-100%, 0);
-      display: none;
-    }
-  }
-`;
-export const AlramContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  span {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 10px;
-    line-height: 13px;
-    /* identical to box height */
-
-    letter-spacing: -0.02em;
-
-    /* text/placeholder */
-
-    color: #8e8e8e;
-  }
-  p {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
-    /* or 150% */
-
-    letter-spacing: -0.02em;
-
-    /* text/black */
-
-    color: #1a1b1d;
-  }
-
-  button {
-    display: block;
-    padding: 8px;
-    background: #5200ff;
-    border-radius: 4px;
-    color: white;
-    border-style: none;
-
-    &:hover {
-      cursor: pointer;
-    }
+  margin-left: 26px;
+  margin-right: 26px;
+  .new-alarm-alert {
+    position: absolute;
+    top: -5px;
+    right: 0;
   }
 `;
 

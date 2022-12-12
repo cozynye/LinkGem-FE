@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react';
 import { useSetRecoilState } from 'recoil';
-import { isMmVisible, recentLinkState } from 'store/store';
+import { gemboxRefetch, isMmVisible, recentLinkState } from 'store/store';
 import Axios from 'utils/Axios';
 import { LinkSaveWrapper } from './LinkSave.style';
 
@@ -9,6 +9,7 @@ const LinkSave = () => {
 
   const [urlText, setUrlText] = useState('');
   const setRecentLink = useSetRecoilState(recentLinkState);
+  const setBoxRefetch = useSetRecoilState(gemboxRefetch);
 
   const handleInputUrl = (e: ChangeEvent<HTMLInputElement>) => {
     setUrlText(e.target.value);
@@ -31,7 +32,7 @@ const LinkSave = () => {
       setUrlText('');
       getLink();
       setIsMmVisible(false);
-      //   setBoxRefetch((prev) => !prev);
+      setBoxRefetch((prev) => !prev);
     } catch (error) {
       console.error(error);
     }

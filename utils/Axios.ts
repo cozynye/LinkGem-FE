@@ -61,8 +61,8 @@ Axios.interceptors.response.use(
         const reAccessToken = result.accessToken;
         localStorage.setItem('accessToken', reAccessToken);
         originalRequest.headers = {
-          Authorization: reAccessToken,
-          ContentType: 'application/json; charset=UTF-8',
+          'Authorization': reAccessToken,
+          'Content-type': 'application/json; charset=UTF-8',
         };
         console.log('액세스토큰 요청 완료');
         console.log('originalRequest', originalRequest);
