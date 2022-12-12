@@ -169,6 +169,7 @@ function Header() {
 
   useEffect(() => {
     setIsLogin(useLogin());
+    if (isLogin) getLatestInfomation();
     const auth = JSON.parse(localStorage.getItem('auth') as string);
     setUserInfoState({ ...auth });
     if (auth?.userPhase === 'READY') setIsOpenModal(true);
@@ -176,7 +177,6 @@ function Header() {
 
   useEffect(() => {}, [userInfoState, isLatestInfo]);
   useEffect(() => {
-    getLatestInfomation();
     window.addEventListener('scroll', updateScroll);
     return () => {
       window.removeEventListener('scroll', updateScroll);
