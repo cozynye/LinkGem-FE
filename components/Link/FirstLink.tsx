@@ -44,9 +44,7 @@ function FirstLink({ name, handleModal }: IFirstLink) {
           <Link href="https://www.notion.so/WELCOME-TO-LINK-GEM-9390ebe25a854abc8b053ca4ee970330">
             <a target="_blank">
               <LinkDetailDescription>
-                링크잼에 가입하신 지금부터 당신은 잼키퍼!
-                <br />
-                링크잼크루들의 열렬한 환영인사와 사용가이드를 확인해보세요
+                링크잼들의 열렬한 환영인사와 사용가이드를 확인하세요.
               </LinkDetailDescription>
             </a>
           </Link>
