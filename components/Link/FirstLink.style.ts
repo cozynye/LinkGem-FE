@@ -40,6 +40,10 @@ export const ImageContainer = styled.div`
     display: block;
     width: 100%;
     height: 100%;
+    span {
+      width: 100% !important;
+      height: 100% !important;
+    }
     img {
       width: 100%;
       height: 100%;

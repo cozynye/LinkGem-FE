@@ -70,3 +70,54 @@ export const LinkSaveWrapper = styled.div`
     }
   }
 `;
+
+interface LinkSaveSuccessBarProps {
+  isVisibleMessage: boolean;
+  isSuccessLink: boolean;
+}
+
+export const LinkSaveSuccessBar = styled.div<LinkSaveSuccessBarProps>`
+  display: ${(props) => (props.isVisibleMessage ? 'block' : 'none')};
+  margin-top: 75px;
+  padding: 16px 24px;
+  gap: 24px;
+  position: fixed;
+  top: 50px;
+  width: ${(props) =>
+    props.isSuccessLink ? '197px !important;' : '354px !important;'};
+  height: 56px !important;
+  /* sub/purple */
+  background-color: ${(props) => (props.isSuccessLink ? '#F3EDFF' : '#FFF1F1')};
+  border-radius: 16px;
+`;
+
+export const SuccessMessage = styled.div`
+  display: flex;
+  font-family: 'Spoqa Han Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #0f0223;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const FailMessage = styled.div`
+  display: flex;
+  font-family: 'Spoqa Han Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #0f0223;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+`;
+
+export const XIconImage = styled.div`
+  &:hover {
+    cursor: pointer;
+  }
+`;

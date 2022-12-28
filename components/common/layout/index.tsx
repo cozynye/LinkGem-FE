@@ -8,8 +8,15 @@ import { size } from 'styles/variable';
 import { BottomBar } from 'components/common/bottomBar';
 import MobileModal from 'components/common/Modal/MobileModal/MobileModal';
 import { useRecoilState } from 'recoil';
-import { isMmVisible } from 'store/store';
+import { isMmVisible, linkSaveState } from 'store/store';
 import LinkSave from 'components/mobile/linksave';
+import {
+  FailMessage,
+  LinkSaveSuccessBar,
+  SuccessMessage,
+  XIconImage,
+} from 'components/mobile/linksave/LinkSave.style';
+import Image from 'next/image';
 
 const HIDE_SIDEBAR = ['/'];
 
@@ -53,7 +60,11 @@ const Layout = (props: IPropsLayout) => {
   const isHideSidebar = HIDE_SIDEBAR.includes(router.asPath);
   const pathname = router.pathname.split('/')[1];
   const [isMdVisible, setIsMdVisible] = useRecoilState(isMmVisible);
-
+  const [linkSaveBar, setLinkSaveBar] = useRecoilState(linkSaveState);
+  const onCloseMessage = () => {
+    // setIsVisibleMessage(false);
+    setLinkSaveBar({ ...linkSaveBar, isSuccess: false });
+  };
   return (
     <Wrapper>
       <Header />
@@ -74,6 +85,42 @@ const Layout = (props: IPropsLayout) => {
         >
           <LinkSave />
         </MobileModal>
+      )}
+      {/* TODO : 스낵바 추후 수정해야함 , 레이아웃 컴포넌트 정리 */}
+      {linkSaveBar.isVisible && (
+        <LinkSaveSuccessBar
+          isVisibleMessage={linkSaveBar.isVisible}
+          isSuccessLink={linkSaveBar.isSuccess}
+        >
+          {linkSaveBar.isSuccess ? (
+            <SuccessMessage>
+              링크 저장 완료!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <XIconImage onClick={onCloseMessage}>
+                <Image
+                  src="/images/icons/link-x.svg"
+                  alt="plus-icon"
+                  width={12}
+                  height={11}
+                />
+              </XIconImage>
+            </SuccessMessage>
+          ) : (
+            <>
+              <FailMessage>
+                링크 저장 실패. 다시 한번 시도해 주세요.
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <XIconImage onClick={onCloseMessage}>
+                  <Image
+                    src="/images/icons/link-x.svg"
+                    alt="plus-icon"
+                    width={12}
+                    height={11}
+                  />
+                </XIconImage>
+              </FailMessage>
+            </>
+          )}
+        </LinkSaveSuccessBar>
       )}
     </Wrapper>
   );

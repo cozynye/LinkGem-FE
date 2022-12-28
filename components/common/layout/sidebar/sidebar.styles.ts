@@ -143,8 +143,9 @@ export const FilterList = styled.li`
 `;
 
 export const GemWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
   width: 100%;
   /* height: 390px; */
   /* padding-left: 15px; */
@@ -155,6 +156,10 @@ export const GemWrapper = styled.div`
   scrollbar-width: none;
   ::-webkit-scrollbar {
     display: none;
+  }
+
+  @media screen and (max-width: ${size.tabletS}) {
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 

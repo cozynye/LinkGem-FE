@@ -1,14 +1,20 @@
 import { ChangeEvent, useState } from 'react';
-import { useSetRecoilState } from 'recoil';
-import { isMmVisible, recentLinkState } from 'store/store';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import {
+  gemboxRefetch,
+  isMmVisible,
+  linkSaveState,
+  recentLinkState,
+} from 'store/store';
 import Axios from 'utils/Axios';
 import { LinkSaveWrapper } from './LinkSave.style';
 
 const LinkSave = () => {
   const setIsMmVisible = useSetRecoilState(isMmVisible);
-
+  const [, setLinkSaveBar] = useRecoilState(linkSaveState);
   const [urlText, setUrlText] = useState('');
   const setRecentLink = useSetRecoilState(recentLinkState);
+  const setBoxRefetch = useSetRecoilState(gemboxRefetch);
 
   const handleInputUrl = (e: ChangeEvent<HTMLInputElement>) => {
     setUrlText(e.target.value);
@@ -31,10 +37,16 @@ const LinkSave = () => {
       setUrlText('');
       getLink();
       setIsMmVisible(false);
-      //   setBoxRefetch((prev) => !prev);
+      setBoxRefetch((prev) => !prev);
+      setLinkSaveBar({ isVisible: true, isSuccess: true });
     } catch (error) {
       console.error(error);
+      setLinkSaveBar({ isVisible: true, isSuccess: false });
     }
+    setTimeout(() => {
+      // setIsVisibleMessage(false);
+      setLinkSaveBar({ isVisible: false, isSuccess: false });
+    }, 3000);
   };
 
   const getLink: () => void = async () => {

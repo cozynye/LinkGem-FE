@@ -36,9 +36,6 @@ import {
   SettingBox,
   SettingModal,
   AlarmBox,
-  AlramModal,
-  AlramContent,
-  PolygonBox,
   PolygonBox2,
   HeaderBox,
 } from './Header.style';
@@ -47,6 +44,7 @@ import { useRouter } from 'next/router';
 import Axios from 'utils/Axios';
 import { headerFormData } from './form';
 import { v4 as uuidv4 } from 'uuid';
+import AlarmModal from 'components/common/Modal/alarmModal';
 
 function Header() {
   const router = useRouter();
@@ -62,6 +60,7 @@ function Header() {
   const setRecentLink = useSetRecoilState(recentLinkState);
   const setLinkSaveBar = useSetRecoilState(linkSaveState);
   const setBoxRefetch = useSetRecoilState(gemboxRefetch);
+  const [isLatestInfo, setIsLatestInfo] = useState(false);
 
   const updateScroll = () => {
     setScrollPosition(window.scrollY || document.documentElement.scrollTop);
@@ -84,6 +83,7 @@ function Header() {
   const handleAlarmModal = () => {
     setIsAlarmModal(!isAlarmModal);
     setIsSettingModal(false);
+    setIsLatestInfo(false);
   };
 
   const handleLinkSave = async () => {
@@ -151,16 +151,36 @@ function Header() {
     }
   };
 
+  const getLatestInfomation = async () => {
+    try {
+      const response = await Axios({
+        url: '/api/v1/notifications/latest-information',
+        method: 'get',
+      });
+      const contents = await response?.data?.result;
+      if (contents.length > 0) setIsLatestInfo(true);
+    } catch (error: any) {
+      console.error(error);
+    }
+  };
+
+  console.log('isLatestInfo');
+  console.log(isLatestInfo);
+
   useEffect(() => {
     setIsLogin(useLogin());
+    if (isLogin) getLatestInfomation();
     const auth = JSON.parse(localStorage.getItem('auth') as string);
     setUserInfoState({ ...auth });
     if (auth?.userPhase === 'READY') setIsOpenModal(true);
   }, [joinUserInfo.accessToken, isLogin]);
 
-  useEffect(() => {}, [userInfoState]);
+  useEffect(() => {}, [userInfoState, isLatestInfo]);
   useEffect(() => {
     window.addEventListener('scroll', updateScroll);
+    return () => {
+      window.removeEventListener('scroll', updateScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -228,48 +248,23 @@ function Header() {
                   <img src="/images/icons/alarm-icon.svg" alt="linkgem-logo" />
                 </AlarmImage>
                 {isAlarmModal && (
-                  <>
-                    <AlramModal isAlarmModal={isAlarmModal}>
-                      <PolygonBox>
-                        <img
-                          src="/images/icons/header-Polygon 1.svg"
-                          alt="linkgem-logo"
-                        />
-                      </PolygonBox>
-                      <AlramContent>
-                        <span>공지 - 24일전 </span>
-                        <p>
-                          링크젬에서 새로운 커뮤니티 서비스를 오픈했어요.
-                          <br />
-                          지금 확인하고 링크잼 커뮤니티로 다른분들과 함께
-                          소통해보세요!
-                        </p>
-                        <button>커뮤니티 확인하기</button>
-                      </AlramContent>
-                      <hr />
-                      <AlramContent>
-                        <span>공지 - 24일전 </span>
-                        <p>
-                          링크젬에서 새로운 커뮤니티 서비스를 오픈했어요.
-                          <br />
-                          지금 확인하고 링크잼 커뮤니티로 다른분들과 함께
-                          소통해보세요!
-                        </p>
-                        <button>커뮤니티 확인하기</button>
-                      </AlramContent>
-                      <hr />
-                      <AlramContent>
-                        <span>공지 - 24일전 </span>
-                        <p>
-                          링크젬에서 새로운 커뮤니티 서비스를 오픈했어요.
-                          <br />
-                          지금 확인하고 링크잼 커뮤니티로 다른분들과 함께
-                          소통해보세요!
-                        </p>
-                        <button>커뮤니티 확인하기</button>
-                      </AlramContent>
-                    </AlramModal>
-                  </>
+                  <AlarmModal
+                    isAlarmModal={isAlarmModal}
+                    setIsAlarmModal={setIsAlarmModal}
+                  />
+                )}
+                {isLatestInfo && (
+                  <div className="new-alarm-alert">
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle cx="6" cy="6" r="6" fill="#41FB6A" />
+                    </svg>
+                  </div>
                 )}
               </AlarmBox>
 

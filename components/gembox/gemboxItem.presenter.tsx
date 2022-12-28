@@ -172,7 +172,9 @@ const LinkCard = (props: IPropsLinkCard) => {
                 rel="noreferrer"
                 style={{ textDecoration: 'none' }}
               >
-                <S.LinkBoxTitle>{props.el?.title}</S.LinkBoxTitle>
+                <S.LinkBoxTitle>
+                  {props.el?.title || props.el?.url}
+                </S.LinkBoxTitle>
                 <S.LinkBoxRemark>{props.el?.description}</S.LinkBoxRemark>
               </a>
               <S.LinkSubInfo>
