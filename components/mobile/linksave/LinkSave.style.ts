@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { size } from 'styles/variable';
 
 export const LinkSaveWrapper = styled.div`
   width: 100%;
@@ -77,7 +78,7 @@ interface LinkSaveSuccessBarProps {
 }
 
 export const LinkSaveSuccessBar = styled.div<LinkSaveSuccessBarProps>`
-  display: ${(props) => (props.isVisibleMessage ? 'block' : 'none')};
+  display: none;
   margin-top: 75px;
   padding: 16px 24px;
   gap: 24px;
@@ -89,6 +90,9 @@ export const LinkSaveSuccessBar = styled.div<LinkSaveSuccessBarProps>`
   /* sub/purple */
   background-color: ${(props) => (props.isSuccessLink ? '#F3EDFF' : '#FFF1F1')};
   border-radius: 16px;
+  @media screen and (max-width: ${size.tabletS}) {
+    display: ${(props) => (props.isVisibleMessage ? 'block' : 'none')};
+  }
 `;
 
 export const SuccessMessage = styled.div`
