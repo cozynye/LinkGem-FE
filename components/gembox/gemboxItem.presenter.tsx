@@ -3,8 +3,8 @@ import { onError } from 'utils/onError';
 import { getDate } from 'utils/getDate';
 import { EllipsisOutlined, StarOutlined, StarFilled } from '@ant-design/icons';
 import { useState } from 'react';
-import { gemboxRefetch } from 'store/store';
-import { useRecoilState } from 'recoil';
+import { gemboxRefetch, isAddGembox } from 'store/store';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import MemoIcon from './moreIcons/memo';
 import AddIcon from './moreIcons/add';
 import { useMutation } from 'utils/useMutation';
@@ -35,6 +35,7 @@ const LinkCard = (props: IPropsLinkCard) => {
 
   const [deleteLink] = useMutation('delete');
   const [changeGembox] = useMutation('patch');
+  const setOpenAdd = useSetRecoilState(isAddGembox);
 
   const onClickDelete = async () => {
     const ids = [props.el.id];
@@ -61,6 +62,9 @@ const LinkCard = (props: IPropsLinkCard) => {
     setIsEdit(false);
     setBoxRefetch(true);
   };
+
+  console.log('!!!!!gembox');
+  console.log(gembox);
 
   return (
     <>
@@ -116,53 +120,76 @@ const LinkCard = (props: IPropsLinkCard) => {
                   삭제
                 </S.MoreItem>
               </S.MoreItems>
-              {isEdit && (
-                <S.Changebox>
-                  <S.ChangeItem>
-                    현재 잼박스
-                    <S.ItemBox type="text" value={boxName || '기본'} disabled />
-                  </S.ChangeItem>
-                  <S.ChangeItem>
-                    변경할 잼박스
-                    <SelectBoxPage
-                      selectList={data?.contents}
-                      gembox={gembox}
-                      handleChange={handleChange}
-                      boxName={boxName}
-                    />
-                  </S.ChangeItem>
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'space-around',
-                      width: '100%',
-                      height: '40px',
-                    }}
-                  >
-                    <S.GemBoxButton
+              {isEdit &&
+                (data?.contents?.length > 1 ? (
+                  <S.Changebox>
+                    <S.ChangeItem>
+                      현재 잼박스
+                      <S.ItemBox
+                        type="text"
+                        value={boxName || '기본'}
+                        disabled
+                      />
+                    </S.ChangeItem>
+                    <S.ChangeItem>
+                      변경할 잼박스
+                      <SelectBoxPage
+                        selectList={data?.contents}
+                        gembox={gembox}
+                        handleChange={handleChange}
+                        boxName={boxName}
+                      />
+                    </S.ChangeItem>
+                    <div
                       style={{
-                        padding: '11px 27px',
-                        fontSize: '14px',
-                        borderRadius: '8px',
-                        background: '#3C3C3F',
-                      }}
-                      onClick={() => setIsEdit(false)}
-                    >
-                      취소
-                    </S.GemBoxButton>
-                    <S.GemBoxButton
-                      onClick={onClickChangeGembox}
-                      style={{
-                        padding: '11px 63px',
-                        fontSize: '14px',
-                        borderRadius: '8px',
+                        display: 'flex',
+                        justifyContent: 'space-around',
+                        width: '100%',
+                        height: '40px',
                       }}
                     >
-                      변경
-                    </S.GemBoxButton>
-                  </div>
-                </S.Changebox>
-              )}
+                      <S.GemBoxButton
+                        style={{
+                          padding: '11px 27px',
+                          fontSize: '14px',
+                          borderRadius: '8px',
+                          background: '#3C3C3F',
+                        }}
+                        onClick={() => setIsEdit(false)}
+                      >
+                        취소
+                      </S.GemBoxButton>
+                      <S.GemBoxButton
+                        onClick={onClickChangeGembox}
+                        style={{
+                          padding: '11px 63px',
+                          fontSize: '14px',
+                          borderRadius: '8px',
+                        }}
+                      >
+                        변경
+                      </S.GemBoxButton>
+                    </div>
+                  </S.Changebox>
+                ) : (
+                  <S.ChangeNobox>
+                    <div className="description">
+                      변경할 잼박스가 없어요
+                      <br />
+                      <span className="highlights">
+                        잼박스를 먼저 만들어 주세요.
+                      </span>
+                    </div>
+                    <div className="btn-group">
+                      <S.GemBoxButton onClick={() => setIsEdit(false)}>
+                        취소
+                      </S.GemBoxButton>
+                      <S.GemBoxButton onClick={() => setOpenAdd(true)}>
+                        잼박스 만들기
+                      </S.GemBoxButton>
+                    </div>
+                  </S.ChangeNobox>
+                ))}
             </S.LinkBoxContents>
           ) : (
             <S.LinkBoxContents>

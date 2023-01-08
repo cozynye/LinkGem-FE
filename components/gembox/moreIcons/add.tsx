@@ -67,8 +67,6 @@ const AddIcon = (props: IAddIconProps) => {
     props.refetch();
     setBoxRefetch(true);
   };
-  console.log('야호야호야호야호!!!!');
-  console.log(data);
   return (
     <>
       <S.MoreItem onClick={openCreate}>
