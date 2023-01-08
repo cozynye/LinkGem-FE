@@ -12,11 +12,13 @@ const AddIcon = (props: IAddIconProps) => {
   const [name, setName] = useState<string>('');
   const [error, setError] = useState<string>('');
   const [linkIds, setLinkIds] = useState([props.el?.id]);
+
   const [boxRefetch, setBoxRefetch] = useRecoilState(gemboxRefetch);
 
   const [createGembox] = useMutation('post');
 
   const { data, refetch } = useQuery('links');
+
   const boxCount = useQuery('gemboxes').data?.totalCount;
 
   const onClickLink = (id: number) => () => {

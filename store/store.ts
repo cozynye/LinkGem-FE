@@ -77,6 +77,11 @@ export const isMmVisible = atom({
   default: false,
 });
 
+export const isAddGembox = atom({
+  key: 'isAddGembox',
+  default: false,
+});
+
 export {
   loginState,
   joinState,

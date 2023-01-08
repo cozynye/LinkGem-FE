@@ -7,7 +7,7 @@ export const AlarmModalWrapper = styled.div<{ isAlarmModal: boolean }>`
   gap: 5px;
   top: 50px;
   right: 5px;
-  width: 420px;
+  width: 440px;
   max-height: 540px;
   padding-top: 24px;
   overflow-y: scroll;

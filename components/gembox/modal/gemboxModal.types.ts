@@ -20,4 +20,5 @@ export interface IPropsGemboxModal {
   onClose?: () => void;
   title: string | boolean;
   Component: any;
+  isClose?: boolean;
 }

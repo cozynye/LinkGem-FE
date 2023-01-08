@@ -24,7 +24,6 @@ export const LinkContainer = styled.section`
 
   @media screen and (max-width: ${size.tabletS}) {
     max-height: 420px;
-    height: 420px;
   }
 
   @media screen and (max-width: ${size.mobile}) {
@@ -67,6 +66,9 @@ export const LinkDetailContainer = styled.div`
   a:hover {
     text-decoration: none;
   }
+  @media screen and (max-width: ${size.mobile}) {
+    padding: 16px 12px;
+  }
 `;
 
 export const LinkDetailTitle = styled.div`
@@ -88,7 +90,12 @@ export const LinkDetailTitle = styled.div`
   /* text/black */
 
   color: #1a1b1d;
+
+  @media screen and (max-width: ${size.mobile}) {
+    font-size: 14px;
+  }
 `;
+
 export const LinkDetailDescription = styled.div`
   width: 100%;
   margin-top: 12px;
@@ -106,6 +113,12 @@ export const LinkDetailDescription = styled.div`
 
   letter-spacing: -0.02em;
   color: #616163;
+
+  @media screen and (max-width: ${size.mobile}) {
+    margin-top: 0px;
+
+    font-size: 13px;
+  }
 `;
 export const LinkDetailSetting = styled.div`
   position: absolute;
@@ -161,6 +174,13 @@ export const FirstLinkTitle = styled.div`
   /* text/black */
 
   color: #1a1b1d;
+
+  @media screen and (max-width: ${size.mobile}) {
+    margin-top: 37px;
+    margin-bottom: 0px;
+
+    font-size: 14px;
+  }
 `;
 
 export const FirstLinkImage = styled.div`

@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useRouter } from 'next/router';
 import { useQuery } from 'utils/useQuery';
 import { useEffect, useState } from 'react';
-import { boxNameState, gemboxRefetch } from 'store/store';
+import { boxNameState, gemboxRefetch, isAddGembox } from 'store/store';
 import { getTotalLinkCount } from 'utils/getTotalLinkCount';
 import GemboxModal from '../../../../gembox/modal';
 import GemCard from '../../../../gembox/modal/gemcard';
@@ -32,7 +32,8 @@ const GemboxSidebar = () => {
 
   const [, setBoxList] = useState<any[]>([]);
   const [open, setOpen] = useState(false);
-  const [openAdd, setOpenAdd] = useState(false);
+  // const [openAdd, setOpenAdd] = useState(false);
+  const [openAdd, setOpenAdd] = useRecoilState(isAddGembox);
   const [selectedId, setSelectedId] = useState(0);
   const [isDelete, setIsDelete] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
