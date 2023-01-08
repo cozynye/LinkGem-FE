@@ -1,7 +1,7 @@
 import GemboxModal from '../modal';
 import { useQuery } from 'utils/useQuery';
 import * as S from '../gembox.styles';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useMutation } from 'utils/useMutation';
 import { useRecoilState } from 'recoil';
@@ -12,13 +12,12 @@ const AddIcon = (props: IAddIconProps) => {
   const [name, setName] = useState<string>('');
   const [error, setError] = useState<string>('');
   const [linkIds, setLinkIds] = useState([props.el?.id]);
-  const [, setBoxRefetch] = useRecoilState(gemboxRefetch);
+
+  const [boxRefetch, setBoxRefetch] = useRecoilState(gemboxRefetch);
 
   const [createGembox] = useMutation('post');
 
-  const { data } = useQuery('links', {
-    hasGembox: false,
-  });
+  const { data, refetch } = useQuery('links');
 
   const boxCount = useQuery('gemboxes').data?.totalCount;
 
@@ -67,6 +66,11 @@ const AddIcon = (props: IAddIconProps) => {
     props.refetch();
     setBoxRefetch(true);
   };
+
+  useEffect(() => {
+    refetch();
+  }, [boxRefetch]);
+
   return (
     <>
       <S.MoreItem onClick={openCreate}>
@@ -119,7 +123,7 @@ const AddIcon = (props: IAddIconProps) => {
                         <S.CheckBox isChecked={linkIds.includes(el.id)}>
                           <S.CheckIcon color="blue" />
                         </S.CheckBox>
-                        <S.DataTitle>{el.title}</S.DataTitle>
+                        <S.DataTitle>{el.title || el.url}</S.DataTitle>
                       </S.LinkItem>
                     ))}
                 </S.GemLinkWrapper>
