@@ -183,7 +183,14 @@ export default function AlarmModal({
               {item.button.buttonAction === 'MOVE_LINK' && (
                 <button
                   className="alarm-link-btn"
-                  onClick={() => window.open(item.button.buttonValue, '_blank')}
+                  onClick={() =>
+                    window.open(
+                      item.button.buttonValue.includes('https://')
+                        ? item.button.buttonValue
+                        : `https://${item.button.buttonValue}`,
+                      '_blank'
+                    )
+                  }
                 >
                   {item.button.buttonText}
                 </button>
