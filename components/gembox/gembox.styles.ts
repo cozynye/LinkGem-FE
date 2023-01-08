@@ -365,7 +365,6 @@ export const GemButton = styled.button<{
   color: string;
   dif?: string;
 }>`
-  margin-left: 8px;
   background-color: ${(props) => props.bgColor};
   border: ${(props) => (props.dif === '1' ? '1px solid #CECECE' : 'none')};
   font-weight: ${(props) => (props.dif === '1' ? '400' : '500')};
@@ -445,7 +444,7 @@ export const ButtonWrapper = styled.div`
   margin-top: 32px;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 `;
 
 export const GemLinkWrapper = styled.ul`

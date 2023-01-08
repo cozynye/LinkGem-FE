@@ -13,14 +13,13 @@ const AddIcon = (props: IAddIconProps) => {
   const [error, setError] = useState<string>('');
   const [linkIds, setLinkIds] = useState([props.el?.id]);
   const [, setBoxRefetch] = useRecoilState(gemboxRefetch);
-  console.log('props');
-  console.log(props);
 
   const [createGembox] = useMutation('post');
 
   const { data } = useQuery('links', {
     hasGembox: false,
   });
+
   const boxCount = useQuery('gemboxes').data?.totalCount;
 
   const onClickLink = (id: number) => () => {
@@ -68,7 +67,8 @@ const AddIcon = (props: IAddIconProps) => {
     props.refetch();
     setBoxRefetch(true);
   };
-
+  console.log('야호야호야호야호!!!!');
+  console.log(data);
   return (
     <>
       <S.MoreItem onClick={openCreate}>

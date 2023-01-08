@@ -45,6 +45,7 @@ const MemoIcon = (props: IMemoIconProps) => {
         }}
         open={props.open}
         setOpen={props.setOpen}
+        isClose={true}
         title={!isMemoDelete && '잼키퍼 메모장'}
         Component={
           isMemoDelete ? (
@@ -105,7 +106,7 @@ const MemoIcon = (props: IMemoIconProps) => {
                   dif={'1'}
                   onClick={() => setIsMemoDelete(true)}
                 >
-                  취소
+                  삭제
                 </S.GemButton>
                 <S.GemButton
                   bgColor="#5200FF"
