@@ -354,7 +354,7 @@ export const GemBoxButton = styled.button`
   font-size: 14px;
   letter-spacing: -0.02em;
   font-weight: 500;
-
+  white-space: nowrap;
   color: #ffffff;
   border: none;
   cursor: pointer;
@@ -365,7 +365,6 @@ export const GemButton = styled.button<{
   color: string;
   dif?: string;
 }>`
-  margin-left: 8px;
   background-color: ${(props) => props.bgColor};
   border: ${(props) => (props.dif === '1' ? '1px solid #CECECE' : 'none')};
   font-weight: ${(props) => (props.dif === '1' ? '400' : '500')};
@@ -445,7 +444,7 @@ export const ButtonWrapper = styled.div`
   margin-top: 32px;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 `;
 
 export const GemLinkWrapper = styled.ul`
@@ -695,3 +694,60 @@ export const RenderBox = styled.div`
 //     cursor: pointer;
 //   }
 // `;
+
+export const ChangeNobox = styled.div`
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(78, 78, 78, 0.15);
+  border-radius: 8px;
+
+  .description {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.6px;
+    color: #1a1b1d;
+    @media screen and (max-width: ${size.mobile}) {
+      font-size: 12px;
+    }
+    span {
+      font-weight: 500;
+    }
+  }
+
+  .btn-group {
+    display: flex;
+    gap: 8px;
+
+    button {
+      display: flex;
+      align-items: center;
+      padding: 11px 0px;
+      justify-content: center;
+      font-size: 14px;
+
+      @media screen and (max-width: ${size.mobile}) {
+        padding: 6px 0px;
+        font-size: 12px;
+      }
+      :first-child {
+        flex-grow: 1;
+        border-radius: 8px;
+        background: #3c3c3f;
+      }
+      :last-child {
+        flex-grow: 2;
+        border-radius: 8px;
+      }
+    }
+  }
+`;
