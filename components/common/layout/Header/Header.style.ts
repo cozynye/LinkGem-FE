@@ -137,6 +137,13 @@ export const StarImage = styled.div`
 export const ImageContainer = styled.div`
   position: relative;
   display: flex;
+  width: 165px;
+  height: 27px;
+
+  @media screen and (max-width: ${size.tabletS}) {
+    width: 103px;
+    height: 16px;
+  }
   &:hover {
     cursor: pointer;
   }

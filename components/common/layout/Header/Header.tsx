@@ -5,6 +5,7 @@ import React, {
   ChangeEvent,
   KeyboardEvent,
 } from 'react';
+
 import Join from 'components/Join';
 import Modal from 'components/common/Modal';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
@@ -27,7 +28,6 @@ import {
   LinkSaveButton,
   AlarmImage,
   Initial,
-  LogoImage,
   SpaceCell,
   HeaderLinkSave,
   LinkText,
@@ -193,7 +193,12 @@ function Header() {
         <LogoContainer>
           <Link href="/">
             <ImageContainer>
-              <LogoImage src="/images/Linkgem-Logo.svg" alt="linkgem-logo" />
+              <Image
+                src="/images/Linkgem-Logo.svg"
+                alt="linkgem-logo"
+                layout="fill"
+                priority
+              />
             </ImageContainer>
           </Link>
           <span>Beta</span>
@@ -245,7 +250,13 @@ function Header() {
               </LinkSaveButton>
               <AlarmBox>
                 <AlarmImage onClick={handleAlarmModal}>
-                  <img src="/images/icons/alarm-icon.svg" alt="linkgem-logo" />
+                  {/* <img src="/images/icons/alarm-icon.svg" alt="linkgem-logo" /> */}
+                  <Image
+                    src="/images/icons/alarm-icon.svg"
+                    alt="linkgem-logo"
+                    layout="fill"
+                    priority
+                  />
                 </AlarmImage>
                 {isAlarmModal && (
                   <AlarmModal
