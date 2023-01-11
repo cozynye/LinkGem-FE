@@ -44,7 +44,7 @@ export const GexboxSectionTitle = styled.h1`
 
 export const LinkBoxWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(31%, auto));
+  grid-template-columns: repeat(3, minmax(31%, 31%));
   width: 100%;
   grid-auto-rows: minmax(200px, 320px);
 
