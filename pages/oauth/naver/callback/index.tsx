@@ -16,11 +16,14 @@ function Index() {
     if (token === 'access_denied') router.push('/');
     localStorage.removeItem('auth');
     try {
-      const response = await axios.get('/api/v1/user/oauth/login/naver', {
-        params: {
-          code: token,
-        },
-      });
+      const response = await axios.get(
+        `https://dev.linkgem.co.kr/api/v1/user/oauth/login/naver`,
+        {
+          params: {
+            code: token,
+          },
+        }
+      );
 
       const result = await response.data;
       const userInfo = result?.result;
