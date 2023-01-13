@@ -180,6 +180,7 @@ const GemboxSidebar = () => {
         setOpen={setOpen}
         onClose={setClose}
         title={(isDelete && !'') || (isEdit && '잼박스 수정') || 'My Gem Box'}
+        isClose
         Component={
           <>
             {isDelete && !isEdit && (
