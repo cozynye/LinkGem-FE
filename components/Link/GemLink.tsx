@@ -105,7 +105,7 @@ function GemLink({
     setIsEdit(false);
     setBoxRefetch(true);
     const response = await Axios(
-      `https://dev.linkgem.co.kr/api/v1/gemboxes/${gembox}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/api/v1/gemboxes/${gembox}`,
       {
         method: 'get',
         // params: {
@@ -156,7 +156,7 @@ function GemLink({
   const handleGetGemBoxName = async () => {
     if (gemBoxId) {
       const response = await Axios(
-        `https://dev.linkgem.co.kr/api/v1/gemboxes/${gemBoxId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/gemboxes/${gemBoxId}`,
         {
           method: 'get',
           // params: {
@@ -195,7 +195,7 @@ function GemLink({
   return (
     <LinkContainer>
       <ImageBox isEtcCon={isEtcCon}>
-        <Link href={url || 'https://devlinkgem.netlify.app/'}>
+        <Link href={url || 'https://linkgem.co.kr/'}>
           <a target="_blank">
             <img
               alt="link-image"
@@ -206,12 +206,12 @@ function GemLink({
       </ImageBox>
       <LinkDetailBox isEtcCon={isEtcCon}>
         <LinkDetailTitle>
-          <Link href={url || 'https://devlinkgem.netlify.app/'}>
+          <Link href={url || 'https://linkgem.co.kr/'}>
             <a target="_blank">{title || siteName || url}</a>
           </Link>
         </LinkDetailTitle>
         <LinkDetailDescription>
-          <Link href={url || 'https://devlinkgem.netlify.app/'}>
+          <Link href={url || 'https://linkgem.co.kr/'}>
             <a target="_blank">{description}</a>
           </Link>
         </LinkDetailDescription>
