@@ -1,7 +1,7 @@
 import GemboxModal from '../modal';
 import { useQuery } from 'utils/useQuery';
 import * as S from '../gembox.styles';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useMutation } from 'utils/useMutation';
 import { useRecoilState } from 'recoil';
@@ -13,7 +13,7 @@ const AddIcon = (props: IAddIconProps) => {
   const [error, setError] = useState<string>('');
   const [linkIds, setLinkIds] = useState([props.el?.id]);
 
-  const [boxRefetch, setBoxRefetch] = useRecoilState(gemboxRefetch);
+  const [, setBoxRefetch] = useRecoilState(gemboxRefetch);
 
   const [createGembox] = useMutation('post');
 
