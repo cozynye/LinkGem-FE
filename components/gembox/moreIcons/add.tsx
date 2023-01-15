@@ -68,8 +68,6 @@ const AddIcon = (props: IAddIconProps) => {
     setBoxRefetch(true);
   };
 
-  console.log('❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️data');
-  console.log(data);
   return (
     <>
       <S.MoreItem onClick={openCreate}>
