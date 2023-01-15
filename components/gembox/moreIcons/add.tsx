@@ -69,10 +69,6 @@ const AddIcon = (props: IAddIconProps) => {
   };
 
 
- // useEffect(() => {
- //   refetch();
- // }, [boxRefetch]);
-
   return (
     <>
       <S.MoreItem onClick={openCreate}>
