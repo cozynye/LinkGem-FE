@@ -17,7 +17,7 @@ function Index() {
     localStorage.removeItem('auth');
     try {
       const response = await axios.get(
-        `https://dev.linkgem.co.kr/api/v1/user/oauth/login/naver`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/user/oauth/login/naver`,
         {
           params: {
             code: token,

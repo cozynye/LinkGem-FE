@@ -11,7 +11,7 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        destination: 'https://dev.linkgem.co.kr/api/:path*',
+        destination: `${process.env.NEXT_PUBLIC_API_URL}/api/:path*`,
         source: '/api/:path*',
       },
     ];
