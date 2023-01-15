@@ -17,7 +17,7 @@ const AddIcon = (props: IAddIconProps) => {
   const [createGembox] = useMutation('post');
 
   const { data } = useQuery('links', {
-    hasGembox: false,
+    isDefault: true,
   });
 
   const boxCount = useQuery('gemboxes').data?.totalCount;
@@ -67,6 +67,9 @@ const AddIcon = (props: IAddIconProps) => {
     props.refetch();
     setBoxRefetch(true);
   };
+
+  console.log('❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️data');
+  console.log(data);
   return (
     <>
       <S.MoreItem onClick={openCreate}>

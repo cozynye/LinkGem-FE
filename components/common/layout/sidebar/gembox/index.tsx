@@ -13,6 +13,7 @@ import GemCard from '../../../../gembox/modal/gemcard';
 import DeleteBox from '../../../../gembox/modal/deleteBox';
 import EditBox from '../../../../gembox/modal/editBox';
 import AddIcon from '../../../../gembox/moreIcons/add';
+import GemCount from '../../../../common/gemCount';
 // import MemoIcon from '../../../../../public/icons/memoIcon.svg';
 
 export type IDataType = {
@@ -27,7 +28,8 @@ export type IDataType = {
 const GemboxSidebar = () => {
   const router = useRouter();
   const totalCount = getTotalLinkCount();
-
+  const [pathname, setPathname] = useState('/gembox');
+  const [gemboxId, setGemboxId] = useState(0);
   const { data, refetch } = useQuery('gemboxes');
 
   const [, setBoxList] = useState<any[]>([]);
@@ -66,6 +68,7 @@ const GemboxSidebar = () => {
   };
 
   const selectMenu = (menu: string, el?: any) => () => {
+    setGemboxId(el?.id);
     if (el?.id) {
       router.push(`/${menu}/${el.id}`);
       setBoxName(el.name);
@@ -89,6 +92,10 @@ const GemboxSidebar = () => {
     refetch();
   }, [boxRefetch]);
 
+  useEffect(() => {
+    setPathname(router.pathname);
+  }, [router]);
+
   return (
     <>
       <S.Sidebar>
@@ -103,12 +110,16 @@ const GemboxSidebar = () => {
             />
           </S.GemboxListTitle>
           <S.GemboxItem>
-            <S.GemboxTitle onClick={selectMenu('gembox')}>
+            <S.GemboxTitle onClick={selectMenu('gembox')} pathname={pathname}>
               전체
               <span>({totalCount || 0})</span>
             </S.GemboxTitle>
             {data?.contents?.map((el: IDataType) => (
-              <S.GemboxText key={uuidv4()} onClick={selectMenu('gembox', el)}>
+              <S.GemboxText
+                key={uuidv4()}
+                onClick={selectMenu('gembox', el)}
+                className={`${el.id === gemboxId ? 'active' : ''}`}
+              >
                 {`${el?.name}`}
                 <span>{`(${el.linkCount})`}</span>
               </S.GemboxText>
@@ -145,7 +156,7 @@ const GemboxSidebar = () => {
               >
                 즐겨찾기
               </span>
-              {/* <GemCount isFavorites={true} /> */}
+              <GemCount isFavorites={true} />
             </S.GemboxText>
             <S.GemboxText onClick={selectMenu('gembox/memo')}>
               <svg
@@ -170,7 +181,7 @@ const GemboxSidebar = () => {
               >
                 메모
               </span>
-              {/* <GemCount hasMemo={true} /> */}
+              <GemCount hasMemo={true} />
             </S.GemboxText>
           </ul>
         </S.FilterList>

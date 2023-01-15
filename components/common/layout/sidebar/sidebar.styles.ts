@@ -87,11 +87,11 @@ export const GemboxItem = styled.ul`
   padding: 32px 16px;
 `;
 
-export const GemboxTitle = styled.li`
+export const GemboxTitle = styled.li<{ pathname: string }>`
   cursor: pointer;
   padding-bottom: 16px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: ${({ pathname }) => (pathname === '/gembox' ? '600' : '500')};
   span {
     font-size: 12px;
     font-weight: 400;
@@ -117,6 +117,10 @@ export const GemboxText = styled.li`
 
   .current {
     color: #5200ff;
+  }
+
+  &.active {
+    font-weight: 600;
   }
 `;
 
