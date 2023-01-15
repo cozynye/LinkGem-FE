@@ -7,10 +7,10 @@ import {
   LinkTextContainer,
   LinkText,
   LinkSaveButton,
-  LinkSaveSuccessBar,
-  SuccessMessage,
-  FailMessage,
-  XIconImage,
+  // LinkSaveSuccessBar,
+  // SuccessMessage,
+  // FailMessage,
+  // XIconImage,
 } from './LinkSave.style';
 import Axios from 'utils/Axios';
 import { useRecoilState } from 'recoil';
@@ -19,7 +19,7 @@ import { gemboxRefetch, linkSaveState } from 'store/store';
 function Link({ getLink, recentLink }: ILinkSaveProps) {
   // const [isVisibleMessage, setIsVisibleMessage] = useState(false);
   // const [isSuccessLink, setIsSuccessLink] = useState(false);
-  const [linkSaveBar, setLinkSaveBar] = useRecoilState(linkSaveState);
+  const [, setLinkSaveBar] = useRecoilState(linkSaveState);
   const [urlText, setUrlText] = useState('');
   const [, setBoxRefetch] = useRecoilState(gemboxRefetch);
 
@@ -58,10 +58,10 @@ function Link({ getLink, recentLink }: ILinkSaveProps) {
     }, 3000);
   };
 
-  const onCloseMessage = () => {
-    // setIsVisibleMessage(false);
-    setLinkSaveBar({ ...linkSaveBar, isSuccess: false });
-  };
+  // const onCloseMessage = () => {
+  //   // setIsVisibleMessage(false);
+  //   setLinkSaveBar({ ...linkSaveBar, isSuccess: false });
+  // };
 
   const handleInputUrl = (e: ChangeEvent<HTMLInputElement>) => {
     setUrlText(e.target.value);
@@ -88,9 +88,9 @@ function Link({ getLink, recentLink }: ILinkSaveProps) {
           링크 저장
         </LinkSaveButton>
       </div>
-      {linkSaveBar.isVisible && (
+      {/* {linkSaveBar.isVisible && (
         <LinkSaveSuccessBar
-          isVisibleMessage={linkSaveBar.isVisible}
+          isVisibleMessage={true}
           isSuccessLink={linkSaveBar.isSuccess}
         >
           {linkSaveBar.isSuccess ? (
@@ -122,7 +122,7 @@ function Link({ getLink, recentLink }: ILinkSaveProps) {
             </>
           )}
         </LinkSaveSuccessBar>
-      )}
+      )} */}
     </LinkSaveContainer>
   );
 }

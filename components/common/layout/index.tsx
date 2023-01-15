@@ -86,7 +86,7 @@ const Layout = (props: IPropsLayout) => {
           <LinkSave />
         </MobileModal>
       )}
-      {/* TODO : 스낵바 추후 수정해야함 , 레이아웃 컴포넌트 정리 */}
+      {/* TODO : 스낵바 추후 수정해야함 , 레이아웃 컴포넌트 정리, 스낵바 위치 정리 , 링크 삭제나 추가등 하단에 차례로 쌓이게 */}
       {linkSaveBar.isVisible && (
         <LinkSaveSuccessBar
           isVisibleMessage={linkSaveBar.isVisible}

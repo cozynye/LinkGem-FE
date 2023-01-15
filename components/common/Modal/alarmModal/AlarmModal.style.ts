@@ -8,7 +8,7 @@ export const AlarmModalWrapper = styled.div<{ isAlarmModal: boolean }>`
   top: 50px;
   right: 5px;
   width: 440px;
-  max-height: 540px;
+  height: 470px;
   padding-top: 24px;
   overflow-y: scroll;
   -ms-overflow-style: none;
@@ -23,6 +23,7 @@ export const AlarmModalWrapper = styled.div<{ isAlarmModal: boolean }>`
   box-shadow: 0px 4px 10px rgba(78, 78, 78, 0.15);
   border-radius: 8px;
   animation: 0.7s ${(props) => (props.isAlarmModal ? 'showUp' : 'showOut')};
+
   @media screen and (max-width: ${size.tabletS}) {
     top: 30px;
   }
@@ -85,18 +86,22 @@ export const AlarmModalWrapper = styled.div<{ isAlarmModal: boolean }>`
             color: #ffffff;
           }
         }
+
         @media screen and (max-width: ${size.mobile}) {
           display: none;
         }
       }
+
       .mobile-alarm {
         display: none;
         gap: 4px;
         align-items: center;
         padding: 18px 20px;
+
         @media screen and (max-width: ${size.mobile}) {
           display: flex;
         }
+
         button {
           display: flex;
           align-items: center;
@@ -111,9 +116,12 @@ export const AlarmModalWrapper = styled.div<{ isAlarmModal: boolean }>`
       gap: 8px;
       padding: 0px 20px;
       margin-top: 16px;
+      margin-bottom: 16px;
+
       @media screen and (max-width: ${size.mobile}) {
         display: none;
       }
+
       button {
         background-color: transparent;
         border: none;
@@ -129,7 +137,8 @@ export const AlarmModalWrapper = styled.div<{ isAlarmModal: boolean }>`
       }
     }
     .alarm-list {
-      margin-top: 16px;
+      border-top: 1px solid #e0dee6;
+
       @media screen and (max-width: ${size.mobile}) {
         margin-top: 0px;
       }
@@ -139,13 +148,14 @@ export const AlarmModalWrapper = styled.div<{ isAlarmModal: boolean }>`
 export const AlarmItem = styled.div<{ isRead: boolean }>`
   position: relative;
   padding: 20px 32px;
-  border-top: 1px solid #e0dee6;
+  border-bottom: 1px solid #e0dee6;
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.02em;
   background-color: ${({ isRead }) => (isRead ? '#FFFFFF' : '#F3EDFF')};
   color: #1a1b1d;
   cursor: pointer;
+
   @media screen and (max-width: ${size.mobile}) {
     padding: 20px 28px;
   }
@@ -162,12 +172,14 @@ export const AlarmItem = styled.div<{ isRead: boolean }>`
     letter-spacing: -0.02em;
     color: #8e8e8e;
   }
+
   .alarm-content {
     margin-top: 4px;
     font-size: 14px;
     line-height: 21px;
     /* or 150% */
     letter-spacing: -0.02em;
+
     mark {
       background-color: transparent;
       font-weight: 700;
