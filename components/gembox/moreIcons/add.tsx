@@ -1,7 +1,7 @@
 import GemboxModal from '../modal';
 import { useQuery } from 'utils/useQuery';
 import * as S from '../gembox.styles';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useMutation } from 'utils/useMutation';
 import { useRecoilState } from 'recoil';
@@ -13,12 +13,13 @@ const AddIcon = (props: IAddIconProps) => {
   const [error, setError] = useState<string>('');
   const [linkIds, setLinkIds] = useState([props.el?.id]);
 
-  const [boxRefetch, setBoxRefetch] = useRecoilState(gemboxRefetch);
+  const [, setBoxRefetch] = useRecoilState(gemboxRefetch);
 
   const [createGembox] = useMutation('post');
 
-  const { data, refetch } = useQuery('links');
-
+  const { data } = useQuery('links', {
+    isDefault: true,
+  });
   const boxCount = useQuery('gemboxes').data?.totalCount;
 
   const onClickLink = (id: number) => () => {
@@ -41,7 +42,7 @@ const AddIcon = (props: IAddIconProps) => {
     props.setOpen(true);
   };
 
-  const regex = /^[ㄱ-ㅎ|가-힣|a-z|A-Z|0-9|]+$/;
+  const regex = /^[ㄱ-ㅎ\s|가-힣|a-z|A-Z|0-9|]+$/;
 
   const onClickSubmit = async () => {
     console.log('linkIds');
@@ -49,7 +50,7 @@ const AddIcon = (props: IAddIconProps) => {
     if (name.length <= 0) {
       setError('잼박스 이름을 설정해주세요.');
       return;
-    } else if (name.length >= 8) {
+    } else if (name.length > 8) {
       setError('잼박스 이름은 최대 8글자까지 만들 수 있습니다.');
       return;
     } else if (!regex.test(name)) {
@@ -67,9 +68,6 @@ const AddIcon = (props: IAddIconProps) => {
     setBoxRefetch(true);
   };
 
-  useEffect(() => {
-    refetch();
-  }, [boxRefetch]);
 
   return (
     <>
@@ -94,6 +92,12 @@ const AddIcon = (props: IAddIconProps) => {
                   type="text"
                   placeholder="링크와 관련된 이름을 지어주세요."
                   onChange={onChangeName}
+                  onKeyPress={(e) => {
+                    if (e.key === 'Enter') {
+                      e.preventDefault();
+                      onClickSubmit();
+                    }
+                  }}
                   error={error}
                   style={
                     name && !error

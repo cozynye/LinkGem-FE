@@ -30,6 +30,7 @@ const GemboxModal = (props: IPropsGemboxModal) => {
                 width: '20px',
                 height: '20px',
                 position: 'absolute',
+                cursor: 'pointer',
                 top: 34,
                 right: 40,
               }}
