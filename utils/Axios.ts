@@ -48,7 +48,7 @@ Axios.interceptors.response.use(
       try {
         console.log('액세스토큰 재요청 해야합니다');
         const { data } = await axios.post(
-          '/api/v1/user/oauth/reissue',
+          `${process.env.NEXT_PUBLIC_API_URL}/api/v1/user/oauth/reissue`,
           {},
           {
             headers: {

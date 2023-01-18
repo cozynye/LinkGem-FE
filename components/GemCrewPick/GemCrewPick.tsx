@@ -31,7 +31,7 @@ function GemCrewPick({ copyToClipboard, getLink }: IGemCrewPick) {
     console.log('중요');
     try {
       const response = await Axios({
-        url: '/api/v1/common-links',
+        url: `${process.env.NEXT_PUBLIC_API_URL}/api/v1/common-links`,
         method: 'get',
         params: {
           page: 0,

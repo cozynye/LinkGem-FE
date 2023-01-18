@@ -93,7 +93,7 @@ function Header() {
           setIsLinkSave(false);
           return;
         }
-        await Axios('/api/v1/links', {
+        await Axios(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/links`, {
           method: 'post',
           data: {
             url: urlText.includes('https://')
@@ -131,7 +131,7 @@ function Header() {
   const getLink: () => void = async () => {
     try {
       const response = await Axios({
-        url: '/api/v1/links',
+        url: `${process.env.NEXT_PUBLIC_API_URL}/api/v1/links`,
         method: 'get',
         params: {
           page: 0,
@@ -154,7 +154,7 @@ function Header() {
   const getLatestInfomation = async () => {
     try {
       const response = await Axios({
-        url: '/api/v1/notifications/latest-information',
+        url: `${process.env.NEXT_PUBLIC_API_URL}/api/v1/notifications/latest-information`,
         method: 'get',
       });
       const contents = await response?.data?.result;

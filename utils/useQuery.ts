@@ -21,7 +21,7 @@ export const useQuery = (apiName: string, params?: object) => {
 
     Axios({
       cancelToken: source.token,
-      url: `/api/v1/${apiName || ''}`,
+      url: `${process.env.NEXT_PUBLIC_API_URL}/api/v1/${apiName || ''}`,
       method: 'get',
       params,
     })

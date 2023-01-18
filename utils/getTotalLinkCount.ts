@@ -9,7 +9,7 @@ export const getTotalLinkCount = () => {
   const fetchLinkData = async () => {
     try {
       const result = await Axios({
-        url: 'api/v1/links',
+        url: `${process.env.NEXT_PUBLIC_API_URL}/api/v1/links`,
         method: 'get',
       });
       setTotalCount(result?.data?.result?.totalCount);

@@ -5,10 +5,13 @@ import { ChangeEvent, useState } from 'react';
 // import { DeleteOutlined } from '@ant-design/icons';
 import { IMemoIconProps } from './gemboxIcon.types';
 import { LinkSaveButton } from 'components/Setting/Setting.style';
+import { gemboxRefetch } from 'store/store';
+import { useSetRecoilState } from 'recoil';
 
 const MemoIcon = (props: IMemoIconProps) => {
   const [memo, setMemo] = useState('');
   const [isMemoDelete, setIsMemoDelete] = useState(false);
+  const setBoxRefetch = useSetRecoilState(gemboxRefetch);
 
   const [updateMemo] = useMutation('patch');
 
@@ -25,6 +28,7 @@ const MemoIcon = (props: IMemoIconProps) => {
     });
     props.setOpen(false);
     setIsMemoDelete(false);
+    setBoxRefetch((prev) => !prev);
     props.refetch();
   };
   console.log('memo');

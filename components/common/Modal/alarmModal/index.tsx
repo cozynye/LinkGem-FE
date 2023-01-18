@@ -31,7 +31,7 @@ export default function AlarmModal({
   const getAlarmType = async () => {
     try {
       const response = await Axios({
-        url: '/api/v1/notifications/types',
+        url: `${process.env.NEXT_PUBLIC_API_URL}/api/v1/notifications/types`,
         method: 'get',
       });
       const contents = await response?.data?.result;
@@ -43,7 +43,7 @@ export default function AlarmModal({
   const getAlarmList = async () => {
     try {
       const response = await Axios({
-        url: '/api/v1/notifications',
+        url: `${process.env.NEXT_PUBLIC_API_URL}/api/v1/notifications`,
         method: 'get',
         params,
       });
@@ -55,10 +55,13 @@ export default function AlarmModal({
   };
   const handleReadAlarm = async (notificationId: number) => {
     try {
-      await Axios(`/api/v1/notifications/${notificationId}/is-read`, {
-        method: 'patch',
-        // data: { isFavorites: !isFavorites },
-      });
+      await Axios(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/notifications/${notificationId}/is-read`,
+        {
+          method: 'patch',
+          // data: { isFavorites: !isFavorites },
+        }
+      );
       getAlarmList();
     } catch (error: any) {
       console.error(error);
@@ -66,10 +69,13 @@ export default function AlarmModal({
   };
   const deleteAlarm = async (notificationId: number) => {
     try {
-      await Axios(`/api/v1/notifications/${notificationId}`, {
-        method: 'delete',
-        // data: { isFavorites: !isFavorites },
-      });
+      await Axios(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/notifications/${notificationId}`,
+        {
+          method: 'delete',
+          // data: { isFavorites: !isFavorites },
+        }
+      );
       getAlarmList();
     } catch (error: any) {
       console.error(error);
