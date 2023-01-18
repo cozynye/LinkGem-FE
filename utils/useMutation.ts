@@ -5,7 +5,7 @@ export const useMutation = (method: string) => {
     if (method === 'patch') {
       try {
         const result = await Axios({
-          url: `api/v1/${apiName}`,
+          url: `${process.env.NEXT_PUBLIC_API_URL}/api/v1/${apiName}`,
           method: 'patch',
           data: params,
         });
@@ -18,7 +18,7 @@ export const useMutation = (method: string) => {
     if (method === 'post') {
       try {
         const result = await Axios({
-          url: `api/v1/${apiName}`,
+          url: `${process.env.NEXT_PUBLIC_API_URL}/api/v1/${apiName}`,
           method: 'post',
           data: params,
         });
@@ -30,7 +30,7 @@ export const useMutation = (method: string) => {
     if (method === 'delete') {
       try {
         const result = await Axios({
-          url: `api/v1/${apiName}`,
+          url: `${process.env.NEXT_PUBLIC_API_URL}/api/v1/${apiName}`,
           method: 'delete',
           data: params,
         });

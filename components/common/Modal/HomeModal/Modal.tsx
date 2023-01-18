@@ -34,7 +34,7 @@ export default function Modal({
   const onClickLinkSaveButton = async () => {
     try {
       // const response =
-      await Axios('/api/v1/links', {
+      await Axios(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/links`, {
         method: 'post',
         data: {
           url: urlText.includes('https://') ? urlText : `https://${urlText}`,

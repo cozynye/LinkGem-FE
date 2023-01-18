@@ -23,7 +23,7 @@ const LinkSave = () => {
   const handleLinkSave = async () => {
     console.log('여기여기222');
     try {
-      await Axios('/api/v1/links', {
+      await Axios(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/links`, {
         method: 'post',
         data: {
           url: urlText.includes('https://')
@@ -52,7 +52,7 @@ const LinkSave = () => {
   const getLink: () => void = async () => {
     try {
       const response = await Axios({
-        url: '/api/v1/links',
+        url: `${process.env.NEXT_PUBLIC_API_URL}/api/v1/links`,
         method: 'get',
         params: {
           page: 0,

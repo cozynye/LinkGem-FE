@@ -13,6 +13,7 @@ interface IPropsGemCount {
 const GemCount = (props: IPropsGemCount) => {
   const [count, setCount] = useState<number>(0);
   const boxRefetch = useRecoilValue(gemboxRefetch);
+  console.log('Dighdigh!!!!');
 
   const params: IPropsGemCount = {};
   if (props.isFavorites) params.isFavorites = props.isFavorites;
@@ -23,7 +24,7 @@ const GemCount = (props: IPropsGemCount) => {
     const source = axios.CancelToken.source();
 
     Axios({
-      url: 'api/v1/links',
+      url: `${process.env.NEXT_PUBLIC_API_URL}/api/v1/links`,
       method: 'get',
       params,
     })

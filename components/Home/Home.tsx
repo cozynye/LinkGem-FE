@@ -44,7 +44,7 @@ function Home() {
     console.log('중요');
     try {
       const response = await Axios({
-        url: '/api/v1/links',
+        url: `${process.env.NEXT_PUBLIC_API_URL}/api/v1/links`,
         method: 'get',
         params: {
           page: 0,

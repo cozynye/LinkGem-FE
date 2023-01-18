@@ -8,14 +8,17 @@ import { Select } from 'antd';
 import { size } from 'styles/variable';
 
 export const Wrapper = styled.div`
-  box-sizing: border-box;
-  width: 100%;
+  /* width: 100%; */
+  flex: 1;
   padding: 64px 0;
+  max-width: 78%;
   min-height: 76vh;
 
   padding-right: 24px;
 
   @media screen and (max-width: ${size.tabletS}) {
+    max-width: 100%;
+    padding-top: 0px;
     padding-left: 24px;
   }
   @media screen and (max-width: ${size.mobile}) {
@@ -129,6 +132,7 @@ export const MemoIcon = styled.img`
   height: 24px;
   /* padding: 7px; */
   cursor: pointer;
+  margin-left: 8px;
 `;
 
 export const AddIcon = styled(AddOutlined)`
@@ -449,7 +453,7 @@ export const ButtonWrapper = styled.div`
 
 export const GemLinkWrapper = styled.ul`
   box-sizing: border-box;
-  width: 100%;
+  width: 350px;
   height: 13.5vh;
   border: 1px solid #cecece;
   border-radius: 4px;

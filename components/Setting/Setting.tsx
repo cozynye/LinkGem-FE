@@ -143,19 +143,22 @@ export default function Setting() {
   const handleUserSetting = async () => {
     try {
       const auth = JSON.parse(localStorage.getItem('auth') as string);
-      await Axios('/api/v1/user/settingUserInfo', {
-        method: 'post',
-        data: {
-          profileImage: file || '',
-          nickName: form?.nickName,
-          jobName: form.jobName,
-          careerYear:
-            typeof form.careerYear === 'string'
-              ? form.careerYear.split('년')[0]
-              : form.careerYear,
-        },
-        fileUpload: true,
-      });
+      await Axios(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/user/settingUserInfo`,
+        {
+          method: 'post',
+          data: {
+            profileImage: file || '',
+            nickName: form?.nickName,
+            jobName: form.jobName,
+            careerYear:
+              typeof form.careerYear === 'string'
+                ? form.careerYear.split('년')[0]
+                : form.careerYear,
+          },
+          fileUpload: true,
+        }
+      );
       const _auth = {
         ...auth,
         jobName: form.jobName,
@@ -214,9 +217,12 @@ export default function Setting() {
       // setIsClickedEmailBtn(true);
     }
     try {
-      await Axios(`/api/v1/auth/mail/send?emailAddress=${authEmail}`, {
-        method: 'post',
-      });
+      await Axios(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/mail/send?emailAddress=${authEmail}`,
+        {
+          method: 'post',
+        }
+      );
     } catch (e: any) {
       console.error(e);
       setAuthEmailMessage({
@@ -233,7 +239,7 @@ export default function Setting() {
   const handleAuthEmailModal = async () => {
     try {
       const response = await Axios(
-        `/api/v1/auth/mail/confirm?emailAddress=${authEmail}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/mail/confirm?emailAddress=${authEmail}`,
         {
           method: 'get',
         }
@@ -241,9 +247,12 @@ export default function Setting() {
       const result = await response?.data?.result;
       if (result.auth === true) {
         console.log('인증이 완료 되었습니다');
-        const response = await Axios(`/api/v1/user/info`, {
-          method: 'get',
-        });
+        const response = await Axios(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/v1/user/info`,
+          {
+            method: 'get',
+          }
+        );
         const result = await response?.data?.result;
         setUser(result);
         setIsAuthEmailModal((prev) => !prev);
@@ -268,9 +277,12 @@ export default function Setting() {
   console.log(authEmailMessage);
 
   const getUserInfo = async () => {
-    const response = await Axios(`/api/v1/user/info`, {
-      method: 'get',
-    });
+    const response = await Axios(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/v1/user/info`,
+      {
+        method: 'get',
+      }
+    );
     const result = await response?.data?.result;
     setUser(result);
   };

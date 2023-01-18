@@ -8,14 +8,14 @@ const nextConfig = {
     });
     return config;
   },
-  async rewrites() {
-    return [
-      {
-        destination: `${process.env.NEXT_PUBLIC_API_URL}/api/:path*`,
-        source: '/api/:path*',
-      },
-    ];
-  },
+  // async rewrites() {
+  //   return [
+  //     {
+  //       destination: `${process.env.NEXT_PUBLIC_API_URL}/api/:path*`,
+  //       source: '/api/:path*',
+  //     },
+  //   ];
+  // },
 };
 
 module.exports = nextConfig;
