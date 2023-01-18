@@ -75,27 +75,23 @@ export const LinkDetailTitle = styled.div`
   width: 100%;
   height: 24px;
 
-  overflow: hidden;
-  /* text-overflow: ellipsis; */
-
-  white-space: nowrap;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 140%;
-  /* or 25px */
-
   letter-spacing: -0.02em;
-
-  /* text/black */
-
   color: #1a1b1d;
+
   a {
-    white-space: nowrap;
-    width: 100px;
+    width: 100%;
     color: #1a1b1d;
     text-decoration: none;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
   }
+
   a:visited {
     color: #1a1b1d;
   }

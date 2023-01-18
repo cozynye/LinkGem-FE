@@ -30,7 +30,7 @@ function Link({ getLink, recentLink }: ILinkSaveProps) {
   };
   const onClickLinkSaveButton = async () => {
     try {
-      await Axios('/api/v1/links', {
+      await Axios(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/links`, {
         method: 'post',
         data: {
           url: urlText.includes('https://')

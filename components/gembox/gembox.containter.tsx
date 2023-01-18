@@ -43,6 +43,7 @@ const Gembox = (props: IPropsGembox) => {
       isFavorites: !el?.favorites,
     });
     refetch();
+    setBoxRefetch((prev) => !prev);
   };
 
   return (

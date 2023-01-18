@@ -24,7 +24,7 @@ function FirstLink({ name, handleModal }: IFirstLink) {
     <>
       <LinkContainer>
         <ImageContainer>
-          <Link href="https://www.notion.so/WELCOME-TO-LINK-GEM-9390ebe25a854abc8b053ca4ee970330">
+          <Link href="https://shimmer-columnist-0d7.notion.site/ff6fa58f7f6b4f7589cf2f4f74e88ea8">
             <a target="_blank">
               <Image
                 alt="link-image"
@@ -36,12 +36,12 @@ function FirstLink({ name, handleModal }: IFirstLink) {
           </Link>
         </ImageContainer>
         <LinkDetailContainer>
-          <Link href="https://www.notion.so/WELCOME-TO-LINK-GEM-9390ebe25a854abc8b053ca4ee970330">
+          <Link href="https://shimmer-columnist-0d7.notion.site/ff6fa58f7f6b4f7589cf2f4f74e88ea8">
             <a target="_blank">
               <LinkDetailTitle>반가워요 {name} 키퍼님</LinkDetailTitle>
             </a>
           </Link>
-          <Link href="https://www.notion.so/WELCOME-TO-LINK-GEM-9390ebe25a854abc8b053ca4ee970330">
+          <Link href="https://shimmer-columnist-0d7.notion.site/ff6fa58f7f6b4f7589cf2f4f74e88ea8">
             <a target="_blank">
               <LinkDetailDescription>
                 링크잼들의 열렬한 환영인사와 사용가이드를 확인하세요.
@@ -50,7 +50,7 @@ function FirstLink({ name, handleModal }: IFirstLink) {
           </Link>
 
           <LinkDetailSetting>
-            <LinkDetailSettingDate>22.09.17</LinkDetailSettingDate>
+            <LinkDetailSettingDate>23.01.17</LinkDetailSettingDate>
             <LinkDetailSettingOption>
               <Image
                 alt="link-image"

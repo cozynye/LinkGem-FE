@@ -122,7 +122,7 @@ function GemLink({
 
   const handleFavorite = async () => {
     try {
-      await Axios(`/api/v1/links/${id}`, {
+      await Axios(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/links/${id}`, {
         method: 'patch',
         data: { isFavorites: !isFavorites },
       });
@@ -135,7 +135,7 @@ function GemLink({
 
   const handleLinkDelete = async () => {
     try {
-      await Axios(`/api/v1/links`, {
+      await Axios(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/links`, {
         method: 'delete',
         data: {
           ids: [id],
@@ -171,7 +171,7 @@ function GemLink({
   const handleLinkSave = async () => {
     console.log('여기여기222');
     try {
-      await Axios('/api/v1/links', {
+      await Axios(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/links`, {
         method: 'post',
         data: {
           url,

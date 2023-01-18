@@ -49,7 +49,7 @@ function JobInfo() {
           return;
         }
         await axios.patch(
-          '/api/v1/user/addDetailInfo',
+          `${process.env.NEXT_PUBLIC_API_URL}/api/v1/user/addDetailInfo`,
           {
             careerYear: Number(joinUserInfo.year.split('년')[0]),
             jobName: joinUserInfo.job,

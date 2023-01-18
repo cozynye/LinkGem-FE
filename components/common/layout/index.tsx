@@ -32,10 +32,15 @@ const Wrapper = styled.div`
 `;
 
 const BodyWrapper = styled.div<{ pathname: string }>`
+  margin-top: 84px;
   min-height: 100vh;
   width: 100%;
   background-color: ${(props) =>
     props.pathname === 'setting' ? '#faf5ff' : '#ffffff'};
+
+  @media screen and (max-width: ${size.tabletS}) {
+    margin-top: 64px;
+  }
 `;
 
 const Body = styled.section<{ pathname: string }>`
@@ -43,15 +48,11 @@ const Body = styled.section<{ pathname: string }>`
   max-width: ${(props) => (props.pathname === '' ? '100%' : '1200px')};
   width: 100%;
   height: 100%;
-  padding-top: 84px;
 
   display: flex;
 
-  @media screen and (max-width: ${size.desktop}) {
-    max-width: 100%;
-  }
   @media screen and (max-width: ${size.tabletS}) {
-    padding-top: 64px;
+    padding-top: 34px;
   }
 `;
 
