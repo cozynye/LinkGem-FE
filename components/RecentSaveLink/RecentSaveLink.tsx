@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import Link from 'components/Link';
 import FirstLink from 'components/Link/FirstLink';
 // import { useRouter } from 'next/router';
@@ -14,6 +14,7 @@ import { useRecoilValue } from 'recoil';
 import { userInfo } from 'store/store';
 import { IRecentSaveProps } from 'types/Link.types';
 import { useRouter } from 'next/router';
+import Axios from 'utils/Axios';
 
 interface IUserInfo {
   id: number;
@@ -36,10 +37,26 @@ function RecentSaveLink({
 }: IRecentSaveProps) {
   const user = useRecoilValue(userInfo);
   const router = useRouter();
+  const [isFirstSaveLink, setIsFirstSaveLink] = useState(false);
+
+  const getUserInfo = async () => {
+    const response = await Axios(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/v1/user/info`,
+      {
+        method: 'get',
+      }
+    );
+    const result = await response?.data?.result;
+    setIsFirstSaveLink(result.isSavedFirstLink);
+  };
 
   const handleGoGembox = () => {
     router.push('/gembox');
   };
+
+  useEffect(() => {
+    getUserInfo();
+  }, []);
 
   return (
     <RecentSaveLinkContainer>
@@ -71,8 +88,11 @@ function RecentSaveLink({
                   gemBoxId={link?.gemBoxId}
                 />
               ))}
-          {recentLink.length < 1 && (
+          {recentLink.length < 1 && !isFirstSaveLink && (
             <FirstLink name={user?.nickname} handleModal={handleModal} />
+          )}
+          {isFirstSaveLink && recentLink.length < 1 && (
+            <div style={{ height: '320px' }}></div>
           )}
         </RecentSaveLinkOption>
       </RecentLinkBox>

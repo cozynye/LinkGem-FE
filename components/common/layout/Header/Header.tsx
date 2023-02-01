@@ -193,11 +193,9 @@ function Header() {
         <LogoContainer>
           <Link href="/">
             <ImageContainer>
-              <Image
-                src="/images/Linkgem-Logo.svg"
+              <img
+                src="https://linkgem-storage.s3.ap-northeast-2.amazonaws.com/prod/image/static/linkgem-logo.svg"
                 alt="linkgem-logo"
-                layout="fill"
-                priority
               />
             </ImageContainer>
           </Link>
@@ -251,11 +249,9 @@ function Header() {
               <AlarmBox>
                 <AlarmImage onClick={handleAlarmModal}>
                   {/* <img src="/images/icons/alarm-icon.svg" alt="linkgem-logo" /> */}
-                  <Image
-                    src="/images/icons/alarm-icon.svg"
+                  <img
+                    src="https://linkgem-storage.s3.ap-northeast-2.amazonaws.com/prod/image/static/alarm-icon.svg"
                     alt="linkgem-logo"
-                    layout="fill"
-                    priority
                   />
                 </AlarmImage>
                 {isAlarmModal && (
