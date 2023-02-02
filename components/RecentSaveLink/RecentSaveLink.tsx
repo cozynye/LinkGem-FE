@@ -91,9 +91,6 @@ function RecentSaveLink({
           {recentLink.length < 1 && !isFirstSaveLink && (
             <FirstLink name={user?.nickname} handleModal={handleModal} />
           )}
-          {isFirstSaveLink && recentLink.length < 1 && (
-            <div style={{ height: '320px' }}></div>
-          )}
         </RecentSaveLinkOption>
       </RecentLinkBox>
     </RecentSaveLinkContainer>
