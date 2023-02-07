@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { size } from 'styles/variable';
 import Star169 from '../../../public/icons/star-169.svg';
 
 export const Wrapper = styled.section`
@@ -10,6 +11,8 @@ export const Wrapper = styled.section`
   color: white;
   overflow: hidden;
   background-color: #0f0223;
+  @media screen and (max-width: ${size.mobile}) {
+  }
 `;
 
 export const Article = styled.article`
@@ -18,6 +21,12 @@ export const Article = styled.article`
   align-items: center;
   width: 75%;
   height: 80vh;
+
+  @media screen and (max-width: ${size.mobile}) {
+    width: 100%;
+    flex-direction: column;
+    height: auto;
+  }
 `;
 
 export const TextWrapper = styled.div`
@@ -27,20 +36,28 @@ export const TextWrapper = styled.div`
 export const sectionTitle = styled.h2`
   color: #ffffff;
   margin-bottom: 8px;
-  font-weight: 800;
-  line-height: 72px;
-  font-size: 48px;
-  letter-spacing: -2%;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 150%;
+  letter-spacing: -0.02em;
   word-break: keep-all;
   font-family: 'Poppins';
+  @media screen and (max-width: ${size.mobile}) {
+    font-size: 28px;
+  }
 `;
 
 export const sectionText = styled.span`
-  font-size: 24px;
-  line-height: 36px;
-  letter-spacing: -2%;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+  letter-spacing: -0.02em;
   word-break: keep-all;
   font-family: 'Spoqa Han Sans';
+
+  @media screen and (max-width: ${size.mobile}) {
+    font-size: 16px;
+  }
 `;
 
 export const ArticleContent = styled.div`
@@ -48,6 +65,10 @@ export const ArticleContent = styled.div`
   overflow: visible;
   width: 450px;
   height: 300px;
+
+  @media screen and (max-width: ${size.mobile}) {
+    margin-top: 150px;
+  }
 `;
 
 export const PinkBall = styled.div`
@@ -78,6 +99,11 @@ export const PinkBall = styled.div`
       transform: translate3d(-30px, -50px, 0);
     }
   }
+
+  @media screen and (max-width: ${size.mobile}) {
+    width: 85px;
+    height: 85px;
+  }
 `;
 
 export const GreyBall = styled(PinkBall)`
@@ -97,9 +123,15 @@ export const BlueBall = styled(PinkBall)`
   height: 205px;
   text-align: center;
   background-color: #5200ff;
-  transform: rotate(-46.45deg);
+  /* transform: rotate(-46.45deg); */
   border-radius: 0px 0px 205px 205px;
   animation: none;
+
+  @media screen and (max-width: ${size.mobile}) {
+    width: 205px;
+    height: 102px;
+    border-radius: 0px 0px 105px 105px;
+  }
 `;
 
 export const DoughnutBall = styled(PinkBall)`
@@ -111,6 +143,10 @@ export const DoughnutBall = styled(PinkBall)`
   margin: 0 auto;
   border-radius: 0px 0px 102.5px 102.5px;
   animation: none;
+  @media screen and (max-width: ${size.mobile}) {
+    width: 105px;
+    height: 52px;
+  }
 `;
 
 export const SaveLinkText = styled.div`
