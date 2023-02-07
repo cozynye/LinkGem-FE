@@ -28,7 +28,7 @@ function FirstLink({ name, handleModal }: IFirstLink) {
             <a target="_blank">
               <Image
                 alt="link-image"
-                src="/images/link-welcome.svg"
+                src="/images/link-welcome.png"
                 width={320}
                 height={180}
               />
@@ -44,13 +44,13 @@ function FirstLink({ name, handleModal }: IFirstLink) {
           <Link href="https://shimmer-columnist-0d7.notion.site/ff6fa58f7f6b4f7589cf2f4f74e88ea8">
             <a target="_blank">
               <LinkDetailDescription>
-                링크잼들의 열렬한 환영인사와 사용가이드를 확인하세요.
+                링크잼 크루의 열렬한 환영인사와 사용가이드를 만나보세요{' '}
               </LinkDetailDescription>
             </a>
           </Link>
 
           <LinkDetailSetting>
-            <LinkDetailSettingDate>23.01.17</LinkDetailSettingDate>
+            <LinkDetailSettingDate>23.02.08</LinkDetailSettingDate>
             <LinkDetailSettingOption>
               <Image
                 alt="link-image"

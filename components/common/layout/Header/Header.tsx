@@ -4,6 +4,7 @@ import React, {
   useState,
   ChangeEvent,
   KeyboardEvent,
+  useMemo,
 } from 'react';
 
 import Join from 'components/Join';
@@ -45,6 +46,7 @@ import Axios from 'utils/Axios';
 import { headerFormData } from './form';
 import { v4 as uuidv4 } from 'uuid';
 import AlarmModal from 'components/common/Modal/alarmModal';
+import { throttle } from 'lodash';
 
 function Header() {
   const router = useRouter();
@@ -62,9 +64,14 @@ function Header() {
   const setBoxRefetch = useSetRecoilState(gemboxRefetch);
   const [isLatestInfo, setIsLatestInfo] = useState(false);
 
-  const updateScroll = () => {
-    setScrollPosition(window.scrollY || document.documentElement.scrollTop);
-  };
+  const updateScroll = useMemo(
+    () =>
+      throttle(() => {
+        setScrollPosition(window.scrollY || document.documentElement.scrollTop);
+      }, 500),
+    [scrollPosition]
+  );
+
   const handleInputUrl = (e: ChangeEvent<HTMLInputElement>) => {
     setUrlText(e.target.value);
   };
