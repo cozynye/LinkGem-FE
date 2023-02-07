@@ -132,7 +132,7 @@ export const MemoIcon = styled.img`
   height: 24px;
   /* padding: 7px; */
   cursor: pointer;
-  margin-left: 8px;
+  /* margin-left: 8px; */
 `;
 
 export const AddIcon = styled(AddOutlined)`
@@ -476,7 +476,7 @@ export const CheckBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20px;
+  min-width: 20px;
   height: 20px;
   margin-right: 5px;
   background-color: ${(props: IPropsGemboxStyles) =>

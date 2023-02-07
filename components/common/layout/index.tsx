@@ -52,7 +52,7 @@ const Body = styled.section<{ pathname: string }>`
   display: flex;
 
   @media screen and (max-width: ${size.tabletS}) {
-    padding-top: 34px;
+    /* padding-top: 34px; */
   }
 `;
 
