@@ -123,7 +123,7 @@ export const BlueBall = styled(PinkBall)`
   height: 205px;
   text-align: center;
   background-color: #5200ff;
-  /* transform: rotate(-46.45deg); */
+  transform: rotate(-46.45deg);
   border-radius: 0px 0px 205px 205px;
   animation: none;
 
@@ -173,7 +173,7 @@ export const GreenClip = styled.img`
 
 export const PinkClip = styled.img`
   width: 35%;
-  : translate(0%, -40%) rotate(40deg);
+  transform: translate(0%, -40%) rotate(40deg);
   animation: pink-bounce 2s infinite;
   animation-delay: 2.5s;
   @keyframes pink-bounce {

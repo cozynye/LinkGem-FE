@@ -21,8 +21,11 @@ export default class MyDocument extends Document {
           />
           <meta property="og:title" content="링크잼" />
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="http://localhost:3000/" />
-          <meta property="og:image" content="/images/linkgem-ogimage.jpg" />
+          <meta property="og:url" content="https://www.linkgem.co.kr/" />
+          <meta
+            property="og:image"
+            content="https://www.linkgem.co.kr/images/linkgem-ogimage.jpg"
+          />
           <meta property="og:article:author" content="링크잼" />
           <link
             rel="apple-touch-icon"

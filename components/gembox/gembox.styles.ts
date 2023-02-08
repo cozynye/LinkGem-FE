@@ -132,7 +132,7 @@ export const MemoIcon = styled.img`
   height: 24px;
   /* padding: 7px; */
   cursor: pointer;
-  /* margin-left: 8px; */
+  margin-left: 8px;
 `;
 
 export const AddIcon = styled(AddOutlined)`
