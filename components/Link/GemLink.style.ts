@@ -215,6 +215,35 @@ export const LinkDetailSettingOption = styled.div`
   & > span:hover {
     cursor: pointer;
   }
+
+  .gemcrewpick-save-btn {
+    position: relative;
+    cursor: pointer;
+
+    :hover {
+      :after {
+        display: block;
+      }
+    }
+
+    :after {
+      display: none;
+      position: absolute;
+      content: '링크 저장';
+      bottom: -30px;
+      left: 0;
+      width: 60px;
+      padding: 5px;
+      height: 12px;
+      font-weight: 400;
+      font-size: 12px;
+      background-color: white;
+      box-shadow: 0px 4px 10px rgb(78 78 78 / 15%);
+      z-index: 1;
+      border-radius: 8px;
+      text-align: center;
+    }
+  }
 `;
 export const EtcButton = styled.button`
   background: white;
