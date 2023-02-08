@@ -12,8 +12,6 @@ import {
   LinkDetailSettingOption,
   EtcButton,
   LinkEtcBox,
-  LinkEtcButtonBox,
-  LinkEtcButton,
   LinkEtcXButton,
   GemCrewLink,
   MemoImage,
@@ -28,6 +26,7 @@ import {
   Changebox,
   ChangeIcon,
   ChangeItem,
+  DeleteIcon,
   GemBoxButton,
   ItemBox,
   Memobox,
@@ -263,7 +262,7 @@ function GemLink({
                 <EtcButton onClick={handleEtcButton}>•••</EtcButton>
               </>
             ) : (
-              <>
+              <div className="gemcrewpick-save-btn">
                 <svg
                   onClick={() => handleLinkSave()}
                   width="18"
@@ -279,7 +278,7 @@ function GemLink({
                     strokeWidth="0.2"
                   />
                 </svg>
-              </>
+              </div>
             )}
           </LinkDetailSettingOption>
         </LinkDetailSetting>
@@ -305,14 +304,14 @@ function GemLink({
               <ChangeIcon />
               잼박스변경
             </MoreItem>
-            <LinkEtcButtonBox>
-              <LinkEtcButton
-                src="/images/icons/link-trash-icon.svg"
-                alt="memo-img"
+            <MoreItem>
+              <DeleteIcon
+                src="/icons/deleteIcon.jpg"
                 onClick={handleLinkDelete}
-              />
-              <span>삭제</span>
-            </LinkEtcButtonBox>
+              />{' '}
+              삭제
+            </MoreItem>
+
             <LinkEtcXButton
               src="/images/icons/link-x.svg"
               alt="memo-img"

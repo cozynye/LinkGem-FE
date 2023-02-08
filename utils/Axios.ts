@@ -70,35 +70,36 @@ Axios.interceptors.response.use(
       } catch (error: any) {
         // TODO : reissue 케이스 추가해야함 , mygembox api 요청 500에러 여기에 캐치됨
         console.error('리프레쉬 토큰 발급 에러', error);
-        localStorage.clear();
-        window.location.reload();
+        console.error(error.response.data.code);
+        if (
+          error.response.status === 400 &&
+          error.response.data.code === 'Bad Request'
+        ) {
+          console.log('잘못된 요청입니다.');
+          return Promise.reject(error);
+        } else if (
+          error.response.status === 400 &&
+          error.response.data.code === 'Bad Request'
+        ) {
+          console.log('잘못된 요청입니다.');
+          return Promise.reject(error);
+        } else if (
+          error.response.status === 400 &&
+          (error.response.data.code === 'ACCESS_TOKEN_NOT_VALID' ||
+            error.response.data.code === 'ACCESS_TOKEN_IS_EMPTY' ||
+            error.response.data.code === 'REFRESH_TOKEN_NOT_VALID')
+        ) {
+          console.log('액세스 토큰이 유효하지 않습니다');
+          localStorage.clear();
+          window.location.href = '/';
+        } else if (error.response.status === 404) {
+          console.error('잘못된 요청입니다.');
+        } else if (error.response.status === 500) {
+          console.log('500에러');
+          localStorage.clear();
+          window.location.href = '/';
+        }
       }
-    } else if (
-      error.response.status === 400 &&
-      error.response.data.code === 'Bad Request'
-    ) {
-      console.log('잘못된 요청입니다.');
-      return Promise.reject(error);
-    } else if (
-      error.response.status === 400 &&
-      error.response.data.code === 'Bad Request'
-    ) {
-      console.log('잘못된 요청입니다.');
-      return Promise.reject(error);
-    } else if (
-      error.response.status === 400 &&
-      (error.response.data.code === 'ACCESS_TOKEN_NOT_VALID' ||
-        error.response.data.code === 'ACCESS_TOKEN_IS_EMPTY')
-    ) {
-      console.log('액세스 토큰이 유효하지 않습니다');
-      // localStorage.clear();
-      // window.location.href = '/';
-    } else if (error.response.status === 404) {
-      console.error('잘못된 요청입니다.');
-    } else if (error.response.status === 500) {
-      console.log('500에러');
-      // localStorage.clear();
-      // window.location.href = '/';
     }
     return Promise.reject(error);
   }
