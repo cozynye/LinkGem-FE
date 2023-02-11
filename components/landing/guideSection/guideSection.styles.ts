@@ -111,6 +111,14 @@ export const PinkBall = styled.div`
     }
   }
 
+  @media screen and (max-width: ${size.tabletS}) {
+    top: 70px;
+    left: 60px;
+    width: 131px;
+    height: 131px;
+    font-size: 23px;
+  }
+
   @media screen and (max-width: ${size.mobile}) {
     width: 85px;
     height: 85px;
@@ -126,6 +134,13 @@ export const GreyBall = styled(PinkBall)`
   background-color: #262626;
   animation: bounce 2s infinite;
   animation-delay: 2.5s;
+
+  @media screen and (max-width: ${size.tabletS}) {
+    top: 120px;
+
+    left: 150px;
+  }
+
   @media screen and (max-width: ${size.mobile}) {
     left: 150px;
     top: 17px;
@@ -145,10 +160,16 @@ export const BlueBall = styled(PinkBall)`
   border-radius: 0px 0px 205px 205px;
   animation: none;
 
+  @media screen and (max-width: ${size.tabletS}) {
+    width: 298px;
+    height: 146px;
+    top: 160px;
+    left: 160px;
+  }
+
   @media screen and (max-width: ${size.mobile}) {
     width: 205px;
     height: 102px;
-    /* border-radius: 0px 0px 105px 105px; */
     top: 30px;
     left: 160px;
   }
@@ -163,6 +184,12 @@ export const DoughnutBall = styled(PinkBall)`
   margin: 0 auto;
   border-radius: 0px 0px 102.5px 102.5px;
   animation: none;
+
+  @media screen and (max-width: ${size.tabletS}) {
+    left: 78px;
+    width: 145px;
+    height: 72px;
+  }
 
   @media screen and (max-width: ${size.mobile}) {
     left: 55px;
@@ -239,6 +266,12 @@ export const SolidLine = styled.div`
   border: 1px solid #ffffff;
   transform: rotate(-15deg);
 
+  @media screen and (max-width: ${size.tabletS}) {
+    left: 10px;
+    width: 400px;
+    height: 300px;
+  }
+
   @media screen and (max-width: ${size.mobile}) {
     position: relative;
     top: 0;
@@ -264,8 +297,14 @@ export const Star = styled(Star169)`
   position: absolute;
   top: 30px;
   left: 460px;
-  width: 41px;
-  height: 41px;
+  width: 30px;
+  height: 30px;
+
+  @media screen and (max-width: ${size.tabletS}) {
+    width: 21px;
+    height: 21px;
+    left: 320px;
+  }
 
   @media screen and (max-width: ${size.mobile}) {
     width: 21px;
@@ -301,6 +340,25 @@ export const BlackGem = styled.img`
     100% {
       top: 20px;
       left: 90px;
+    }
+  }
+
+  @media screen and (max-width: ${size.tabletS}) {
+    width: 110px;
+
+    @keyframes black-gem-bounce {
+      0% {
+        top: 20px;
+        left: 110px;
+      }
+      50% {
+        top: 0px;
+        left: 110px;
+      }
+      100% {
+        top: 20px;
+        left: 110px;
+      }
     }
   }
 
@@ -343,6 +401,9 @@ export const GreenGem = styled.img`
       top: 0px;
       left: 210px;
     }
+  }
+  @media screen and (max-width: ${size.tabletS}) {
+    width: 110px;
   }
 
   @media screen and (max-width: ${size.mobile}) {
@@ -387,6 +448,25 @@ export const YellowGem = styled.img`
     }
   }
 
+  @media screen and (max-width: ${size.tabletS}) {
+    width: 110px;
+
+    @keyframes yellow-gem-bounce {
+      0% {
+        top: 110px;
+        left: 90px;
+      }
+      50% {
+        top: 90px;
+        left: 90px;
+      }
+      100% {
+        top: 110px;
+        left: 90px;
+      }
+    }
+  }
+
   @media screen and (max-width: ${size.mobile}) {
     width: 76px;
     @keyframes yellow-gem-bounce {
@@ -426,6 +506,11 @@ export const PinkGem = styled.img`
       top: 150px;
       left: 240px;
     }
+  }
+
+  @media screen and (max-width: ${size.tabletS}) {
+    width: 110px;
+    animation: pink-gem-bounce 2s infinite;
   }
 
   @media screen and (max-width: ${size.mobile}) {
@@ -469,6 +554,10 @@ export const Memo = styled.img`
     }
   }
 
+  @media screen and (max-width: ${size.tabletS}) {
+    width: 222px;
+  }
+
   @media screen and (max-width: ${size.mobile}) {
     width: 168px;
   }
@@ -494,6 +583,11 @@ export const Clock = styled.img`
       top: 0%;
       right: 0%;
     }
+  }
+
+  @media screen and (max-width: ${size.tabletS}) {
+    width: 185px;
+    left: 60px;
   }
 
   @media screen and (max-width: ${size.mobile}) {

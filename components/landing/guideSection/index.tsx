@@ -42,7 +42,7 @@ const GuideSection = (props: IGuideSectionProps) => {
         </S.TextWrapper>
         {/* //TODO 모바일일때 이미지 위치 수정하자 */}
         {props.sectionNumber === 1 && (
-          <S.ArticleContent {...useScrollFadeIn('right', 2, 0)}>
+          <S.ArticleContent {...useScrollFadeIn('up', 2, 0)}>
             <S.PinkBall {...useScrollFadeIn('up', 2, 1)}>Ctrl+C</S.PinkBall>
             <S.GreyBall {...useScrollFadeIn('up', 2, 2)}>Ctrl+V</S.GreyBall>
             <S.BlueBall>

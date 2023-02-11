@@ -48,7 +48,8 @@ export const useScrollFadeIn = (
 
     return () => observer && observer.disconnect();
   }, [onScroll]);
-
+  console.log(element);
+  console.log(element);
   return {
     ref: element,
     style: { opacity: 0, transform: handleDirection(direction) },
