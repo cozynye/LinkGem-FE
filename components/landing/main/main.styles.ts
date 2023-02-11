@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { size } from 'styles/variable';
 
 export const Wrapper = styled.main`
   box-sizing: border-box;
@@ -19,6 +20,19 @@ export const Title = styled.h1`
   font-size: 100px;
   letter-spacing: -2%;
   line-height: 100%;
+
+  span {
+    color: white;
+    font-size: 48px;
+  }
+
+  @media screen and (max-width: ${size.mobile}) {
+    font-size: 55px;
+
+    span {
+      font-size: 28px;
+    }
+  }
 `;
 
 export const TitleRemark = styled.div`
@@ -27,6 +41,10 @@ export const TitleRemark = styled.div`
   font-size: 24px;
   letter-spacing: -2%;
   line-height: 150%;
+
+  @media screen and (max-width: ${size.mobile}) {
+    font-size: 16px;
+  }
 `;
 
 export const MainButton = styled.button`
@@ -44,5 +62,11 @@ export const MainButton = styled.button`
 
   &:hover {
     cursor: pointer;
+  }
+
+  @media screen and (max-width: ${size.mobile}) {
+    width: 188px;
+    height: 56px;
+    font-size: 16px;
   }
 `;

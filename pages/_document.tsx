@@ -23,6 +23,15 @@ export default class MyDocument extends Document {
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://www.linkgem.co.kr/" />
           <meta
+            property="og:site_name"
+            content="링크잼 - 링크들을 지인들과 공유하세요"
+          />
+          <meta
+            property="og:description"
+            content="링크들을 지인들과 공유하세요"
+          />
+
+          <meta
             property="og:image"
             content="https://www.linkgem.co.kr/images/linkgem-ogimage.jpg"
           />

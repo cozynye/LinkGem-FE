@@ -31,6 +31,9 @@ export const Article = styled.article`
 
 export const TextWrapper = styled.div`
   width: 420px;
+  @media screen and (max-width: ${size.mobile}) {
+    width: 100%;
+  }
 `;
 
 export const sectionTitle = styled.h2`
@@ -42,8 +45,12 @@ export const sectionTitle = styled.h2`
   letter-spacing: -0.02em;
   word-break: keep-all;
   font-family: 'Poppins';
+
   @media screen and (max-width: ${size.mobile}) {
     font-size: 28px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
   }
 `;
 
@@ -57,6 +64,9 @@ export const sectionText = styled.span`
 
   @media screen and (max-width: ${size.mobile}) {
     font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -67,7 +77,8 @@ export const ArticleContent = styled.div`
   height: 300px;
 
   @media screen and (max-width: ${size.mobile}) {
-    margin-top: 150px;
+    margin-top: 100px;
+    width: 100%;
   }
 `;
 
@@ -103,6 +114,9 @@ export const PinkBall = styled.div`
   @media screen and (max-width: ${size.mobile}) {
     width: 85px;
     height: 85px;
+    left: 80px;
+    top: 0px;
+    font-size: 15px;
   }
 `;
 
@@ -112,6 +126,10 @@ export const GreyBall = styled(PinkBall)`
   background-color: #262626;
   animation: bounce 2s infinite;
   animation-delay: 2.5s;
+  @media screen and (max-width: ${size.mobile}) {
+    left: 150px;
+    top: 17px;
+  }
 `;
 
 export const BlueBall = styled(PinkBall)`
@@ -130,7 +148,9 @@ export const BlueBall = styled(PinkBall)`
   @media screen and (max-width: ${size.mobile}) {
     width: 205px;
     height: 102px;
-    border-radius: 0px 0px 105px 105px;
+    /* border-radius: 0px 0px 105px 105px; */
+    top: 30px;
+    left: 160px;
   }
 `;
 
@@ -143,7 +163,9 @@ export const DoughnutBall = styled(PinkBall)`
   margin: 0 auto;
   border-radius: 0px 0px 102.5px 102.5px;
   animation: none;
+
   @media screen and (max-width: ${size.mobile}) {
+    left: 55px;
     width: 105px;
     height: 52px;
   }
@@ -216,6 +238,14 @@ export const SolidLine = styled.div`
   border-radius: 50%;
   border: 1px solid #ffffff;
   transform: rotate(-15deg);
+
+  @media screen and (max-width: ${size.mobile}) {
+    position: relative;
+    top: 0;
+    left: 20px;
+    width: 90%;
+    height: 90%;
+  }
 `;
 
 export const DottedLine = styled(SolidLine)`
@@ -223,14 +253,32 @@ export const DottedLine = styled(SolidLine)`
   top: 0px;
   left: 0px;
   border: 1px dashed #ffffff;
+
+  @media screen and (max-width: ${size.mobile}) {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const Star = styled(Star169)`
   position: absolute;
-  top: -20px;
-  left: 410px;
+  top: 30px;
+  left: 460px;
   width: 41px;
   height: 41px;
+
+  @media screen and (max-width: ${size.mobile}) {
+    width: 21px;
+    height: 21px;
+    left: 320px;
+  }
+`;
+
+export const GemBox = styled.div`
+  @media screen and (max-width: ${size.mobile}) {
+    position: absolute;
+    top: 0;
+  }
 `;
 
 export const BlackGem = styled.img`
@@ -253,6 +301,24 @@ export const BlackGem = styled.img`
     100% {
       top: 20px;
       left: 90px;
+    }
+  }
+
+  @media screen and (max-width: ${size.mobile}) {
+    width: 76px;
+    @keyframes black-gem-bounce {
+      0% {
+        top: 50px;
+        left: 130px;
+      }
+      50% {
+        top: 40px;
+        left: 130px;
+      }
+      100% {
+        top: 50px;
+        left: 130px;
+      }
     }
   }
 `;
@@ -278,6 +344,25 @@ export const GreenGem = styled.img`
       left: 210px;
     }
   }
+
+  @media screen and (max-width: ${size.mobile}) {
+    width: 76px;
+
+    @keyframes green-gem-bounce {
+      0% {
+        top: 50px;
+        left: 200px;
+      }
+      50% {
+        top: 40px;
+        left: 200px;
+      }
+      100% {
+        top: 50px;
+        left: 200px;
+      }
+    }
+  }
 `;
 
 export const YellowGem = styled.img`
@@ -299,6 +384,24 @@ export const YellowGem = styled.img`
     100% {
       top: 140px;
       left: 50px;
+    }
+  }
+
+  @media screen and (max-width: ${size.mobile}) {
+    width: 76px;
+    @keyframes yellow-gem-bounce {
+      0% {
+        top: 120px;
+        left: 120px;
+      }
+      50% {
+        top: 100px;
+        left: 120px;
+      }
+      100% {
+        top: 120px;
+        left: 120px;
+      }
     }
   }
 `;
@@ -324,6 +427,25 @@ export const PinkGem = styled.img`
       left: 240px;
     }
   }
+
+  @media screen and (max-width: ${size.mobile}) {
+    width: 76px;
+  }
+
+  @keyframes pink-gem-bounce {
+    0% {
+      top: 110px;
+      left: 200px;
+    }
+    50% {
+      top: 130px;
+      left: 200px;
+    }
+    100% {
+      top: 110px;
+      left: 200px;
+    }
+  }
 `;
 
 export const Memo = styled.img`
@@ -345,6 +467,10 @@ export const Memo = styled.img`
       top: 0%;
       right: 0%;
     }
+  }
+
+  @media screen and (max-width: ${size.mobile}) {
+    width: 168px;
   }
 `;
 
@@ -368,5 +494,10 @@ export const Clock = styled.img`
       top: 0%;
       right: 0%;
     }
+  }
+
+  @media screen and (max-width: ${size.mobile}) {
+    width: 140px;
+    left: 60px;
   }
 `;
