@@ -90,16 +90,19 @@ Axios.interceptors.response.use(
             error.response.data.code === 'REFRESH_TOKEN_NOT_VALID')
         ) {
           console.log('액세스 토큰이 유효하지 않습니다');
-          localStorage.clear();
-          window.location.href = '/';
         } else if (error.response.status === 404) {
           console.error('잘못된 요청입니다.');
         } else if (error.response.status === 500) {
           console.log('500에러');
-          localStorage.clear();
-          window.location.href = '/';
+        } else {
+          console.log(error);
         }
+        localStorage.clear();
+        window.location.href = '/';
       }
+    } else {
+      localStorage.clear();
+      window.location.href = '/';
     }
     return Promise.reject(error);
   }

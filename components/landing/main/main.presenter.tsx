@@ -23,7 +23,7 @@ const MainUI = () => {
           }}
         >
           <S.Title>
-            <span style={{ color: 'white', fontSize: '48px' }}>WELCOME TO</span>
+            <span>WELCOME TO</span>
             <br />
             LINK GEM
           </S.Title>

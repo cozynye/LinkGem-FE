@@ -12,7 +12,23 @@ const GuideSection = (props: IGuideSectionProps) => {
     <S.Wrapper>
       <S.Article>
         <S.TextWrapper {...useScrollFadeIn('up', 2, 0)}>
-          <S.sectionTitle>{props.title}</S.sectionTitle>
+          <S.sectionTitle>
+            {props.sectionNumber === 1 && (
+              <>
+                복사 붙여넣기 하나로 <span>링크 저장 끝!</span>
+              </>
+            )}
+            {props.sectionNumber === 2 && (
+              <>
+                언제나 찾기 쉽도록 <span>잼박스로 관리</span>
+              </>
+            )}
+            {props.sectionNumber === 3 && (
+              <>
+                알람, 메모 기능으로 <span>꼼꼼스킬 LEVEL UP!</span>
+              </>
+            )}
+          </S.sectionTitle>
           <S.sectionText>
             {props.text.split('\n').map((line: string) => {
               return (
@@ -24,8 +40,9 @@ const GuideSection = (props: IGuideSectionProps) => {
             })}
           </S.sectionText>
         </S.TextWrapper>
+        {/* //TODO 모바일일때 이미지 위치 수정하자 */}
         {props.sectionNumber === 1 && (
-          <S.ArticleContent {...useScrollFadeIn('right', 2, 0)}>
+          <S.ArticleContent {...useScrollFadeIn('up', 2, 0)}>
             <S.PinkBall {...useScrollFadeIn('up', 2, 1)}>Ctrl+C</S.PinkBall>
             <S.GreyBall {...useScrollFadeIn('up', 2, 2)}>Ctrl+V</S.GreyBall>
             <S.BlueBall>
@@ -41,24 +58,27 @@ const GuideSection = (props: IGuideSectionProps) => {
           <S.ArticleContent>
             <S.SolidLine>
               <S.DottedLine />
+              <S.Star />
             </S.SolidLine>
-            <S.Star />
-            <S.BlackGem
-              src="./icons/gem-1.png"
-              {...useScrollFadeIn('up', 2, 1.5)}
-            />
-            <S.GreenGem
-              src="./icons/gem-2.png"
-              {...useScrollFadeIn('up', 2, 1)}
-            />
-            <S.YellowGem
-              src="./icons/gem-4.png"
-              {...useScrollFadeIn('up', 2, 0.5)}
-            />
-            <S.PinkGem
-              src="./icons/gem-3.png"
-              {...useScrollFadeIn('up', 2, 0)}
-            />
+            {/* <S.Star /> */}
+            <S.GemBox>
+              <S.BlackGem
+                src="./icons/gem-1.png"
+                {...useScrollFadeIn('up', 2, 1.5)}
+              />
+              <S.GreenGem
+                src="./icons/gem-2.png"
+                {...useScrollFadeIn('up', 2, 1)}
+              />
+              <S.YellowGem
+                src="./icons/gem-4.png"
+                {...useScrollFadeIn('up', 2, 0.5)}
+              />
+              <S.PinkGem
+                src="./icons/gem-3.png"
+                {...useScrollFadeIn('up', 2, 0)}
+              />
+            </S.GemBox>
           </S.ArticleContent>
         )}
         {props.sectionNumber === 3 && (

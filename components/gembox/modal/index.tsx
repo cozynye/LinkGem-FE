@@ -7,8 +7,6 @@ import { IPropsGemboxModal } from './gemboxModal.types';
 import { renderComponents } from 'utils/commons';
 
 const GemboxModal = (props: IPropsGemboxModal) => {
-  console.log('props!!!!!!!!!');
-  console.log(props);
   return (
     <Modal
       aria-labelledby="transition-modal-title"

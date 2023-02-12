@@ -28,7 +28,6 @@ interface IGemCreLink {
 function GemCrewPick({ copyToClipboard, getLink }: IGemCrewPick) {
   const [gemcrewLink, setGemcrewLink] = useState<IGemCreLink[]>([]);
   const getGemCrewLink: () => void = async () => {
-    console.log('중요');
     try {
       const response = await Axios({
         url: `${process.env.NEXT_PUBLIC_API_URL}/api/v1/common-links`,
@@ -50,8 +49,6 @@ function GemCrewPick({ copyToClipboard, getLink }: IGemCrewPick) {
     getGemCrewLink();
   }, []);
 
-  console.log('gemcrewLink');
-  console.log(gemcrewLink);
   return (
     <GemCrewPickContainer>
       <GemCrewPickTitle>잼크루 PICK</GemCrewPickTitle>
