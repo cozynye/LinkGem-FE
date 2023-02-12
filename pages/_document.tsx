@@ -19,7 +19,10 @@ export default class MyDocument extends Document {
             name="viewport"
             content="initial-scale=1.0, width=device-width"
           />
-          <meta property="og:title" content="링크잼" />
+          <meta
+            property="og:title"
+            content="링크잼 - 나만의 링크 저장소 링크잼"
+          />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://www.linkgem.co.kr/" />
           <meta
