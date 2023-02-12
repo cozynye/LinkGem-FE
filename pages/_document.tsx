@@ -14,22 +14,22 @@ export default class MyDocument extends Document {
             charSet="utf-8"
           />
           <title>LINKGEM</title>
-          <meta name="description" content="링크들을 지인들과 공유하세요" />
+          <meta name="description" content="나만의 링크 저장소 링크잼" />
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
           />
-          <meta property="og:title" content="링크잼" />
+          <meta
+            property="og:title"
+            content="링크잼 - 나만의 링크 저장소 링크잼"
+          />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://www.linkgem.co.kr/" />
           <meta
             property="og:site_name"
             content="링크잼 - 링크들을 지인들과 공유하세요"
           />
-          <meta
-            property="og:description"
-            content="링크들을 지인들과 공유하세요"
-          />
+          <meta property="og:description" content="나만의 링크 저장소 링크잼" />
 
           <meta
             property="og:image"
