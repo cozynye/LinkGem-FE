@@ -109,3 +109,32 @@ Axios.interceptors.response.use(
 );
 
 export default Axios;
+
+localStorage.setItem(
+  'accessToken',
+  'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwiaXNzIjoiTElOS19HRU0iLCJpYXQiOjE2NzYxNzg2NjgsImV4cCI6MTY3NjE4MjI2OH0.hZgzanBxPexh3xqCLOPvUN-9KqH3zrz0OgnfzQ6AcpU'
+);
+localStorage.setItem(
+  'refreshToken',
+  'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwiaXNzIjoiTElOS19HRU0iLCJpYXQiOjE2NzYxNzg2NjgsImV4cCI6MTY3Njc4MzQ2OH0.LybIxmxcqxofwiwIpgI8XXkQnhlmODutSRXFqVe93g0'
+);
+
+localStorage.setItem(
+  'auth',
+  JSON.stringify({
+    id: 3,
+    loginEmail: 'loukseven@naver.com',
+    mailEmail: null,
+    name: '신수녕',
+    nickname: 'asdf',
+    accessToken:
+      'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwiaXNzIjoiTElOS19HRU0iLCJpYXQiOjE2NzYxNzg2NjgsImV4cCI6MTY3NjE4MjI2OH0.hZgzanBxPexh3xqCLOPvUN-9KqH3zrz0OgnfzQ6AcpU',
+    refreshToken:
+      'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwiaXNzIjoiTElOS19HRU0iLCJpYXQiOjE2NzYxNzg2NjgsImV4cCI6MTY3Njc4MzQ2OH0.LybIxmxcqxofwiwIpgI8XXkQnhlmODutSRXFqVe93g0',
+    jobName: 'UX 디자이너',
+    careerYear: 3,
+    profileImageUrl:
+      'https://linkgem-storage.s3.ap-northeast-2.amazonaws.com/prod/image/USER_PROFILE/ghE7fqA0q07Q_USER_PROFILE_3',
+    userPhase: 'REGISTERED',
+  })
+);
