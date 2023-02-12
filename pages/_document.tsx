@@ -27,7 +27,7 @@ export default class MyDocument extends Document {
           <meta property="og:url" content="https://www.linkgem.co.kr/" />
           <meta
             property="og:site_name"
-            content="링크잼 - 링크들을 지인들과 공유하세요"
+            content="링크잼 - 나만의 링크 저장소 링크잼"
           />
           <meta property="og:description" content="나만의 링크 저장소 링크잼" />
 
