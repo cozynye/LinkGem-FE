@@ -196,8 +196,6 @@ export default function Setting() {
   };
 
   const handleAuthEmail = async () => {
-    console.log('authEmail');
-    console.log(authEmail);
     const regexEmail =
       /* eslint-disable-next-line */
       /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
@@ -273,8 +271,6 @@ export default function Setting() {
     }
     setIsAuthEmailModal((prev) => !prev);
   };
-  console.log('authEmailMessage');
-  console.log(authEmailMessage);
 
   const getUserInfo = async () => {
     const response = await Axios(
@@ -300,7 +296,6 @@ export default function Setting() {
     setImgUrl(user?.profileImageUrl);
     if (user?.mailEmail) setIsClickedEmailBtn(true);
   }, [user]);
-  console.log('user', user);
   useEffect(() => {
     getUserInfo();
     const auth = JSON.parse(localStorage.getItem('auth') as string);

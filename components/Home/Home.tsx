@@ -41,7 +41,6 @@ function Home() {
     }, 3000);
   };
   const getLink: () => void = async () => {
-    console.log('중요');
     try {
       const response = await Axios({
         url: `${process.env.NEXT_PUBLIC_API_URL}/api/v1/links`,

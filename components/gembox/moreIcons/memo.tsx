@@ -20,8 +20,6 @@ const MemoIcon = (props: IMemoIconProps) => {
   };
 
   const onClickMemo = async () => {
-    console.log('memo');
-    console.log(memo);
     await updateMemo(`links/${props.el.id}`, {
       id: props.el.id,
       memo: memo || '',
@@ -31,8 +29,6 @@ const MemoIcon = (props: IMemoIconProps) => {
     setBoxRefetch((prev) => !prev);
     props.refetch();
   };
-  console.log('memo');
-  console.log(memo);
   return (
     <>
       <S.MoreItem onClick={() => props.setOpen(true)}>

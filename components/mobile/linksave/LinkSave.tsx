@@ -21,7 +21,6 @@ const LinkSave = () => {
   };
 
   const handleLinkSave = async () => {
-    console.log('여기여기222');
     try {
       await Axios(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/links`, {
         method: 'post',

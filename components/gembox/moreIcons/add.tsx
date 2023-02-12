@@ -45,8 +45,6 @@ const AddIcon = (props: IAddIconProps) => {
   const regex = /^[ㄱ-ㅎ\s|가-힣|a-z|A-Z|0-9|]+$/;
 
   const onClickSubmit = async () => {
-    console.log('linkIds');
-    console.log(linkIds);
     if (name.length <= 0) {
       setError('잼박스 이름을 설정해주세요.');
       return;

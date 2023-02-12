@@ -13,9 +13,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     if (router.pathname.includes('/gembox') || router.pathname === '/setting') {
       if (!isLogin) router.push('/');
     }
-
-    console.log('!!!!!!useEffect _app.tsx');
-    console.log(localStorage.getItem('accessToken'));
   }, []);
   return (
     <RecoilRoot>

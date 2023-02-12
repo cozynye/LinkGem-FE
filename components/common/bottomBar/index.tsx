@@ -23,7 +23,6 @@ export const BottomBar = () => {
             <div
               className="link-add"
               onClick={() => {
-                console.log('여기여기');
                 setIsMmVisible(true);
               }}
             >

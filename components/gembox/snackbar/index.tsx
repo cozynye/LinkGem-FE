@@ -64,8 +64,6 @@ export const XIconImage = styled(CloseOutlined)`
 `;
 
 const Snackbar = (props: IPropsSnackBar) => {
-  console.log(props);
-  console.log('props');
   return (
     <LinkCopyContainer isLinkCopy={props.isLinkCopy || props.isDelete}>
       <LinkCopyText isLinkCopy={props.isLinkCopy || props.isDelete}>

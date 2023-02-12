@@ -38,7 +38,7 @@ import {
 import SelectBoxPage from '../atom/select';
 import { useMutation } from 'utils/useMutation';
 import { useRecoilState } from 'recoil';
-import { gemboxRefetch } from 'store/store';
+import { gemboxRefetch, linkSaveState } from 'store/store';
 
 interface GemLinkProps {
   title: string;
@@ -87,6 +87,7 @@ function GemLink({
   // }).data?.name;
   const [boxName, setBoxName] = useState('');
   const { data } = useQuery('gemboxes');
+  const [, setLinkSaveBar] = useRecoilState(linkSaveState);
 
   // const { data, refetch } = useQuery('links', params);
 
@@ -168,7 +169,6 @@ function GemLink({
   };
 
   const handleLinkSave = async () => {
-    console.log('여기여기222');
     try {
       await Axios(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/links`, {
         method: 'post',
@@ -176,12 +176,17 @@ function GemLink({
           url,
         },
       });
-      console.log(getLink);
       getLink?.();
-      console.log('123');
+      setLinkSaveBar({ isVisible: true, isSuccess: true });
+
       //   setBoxRefetch((prev) => !prev);
     } catch (error) {
       console.error(error);
+    } finally {
+      setTimeout(() => {
+        // setIsVisibleMessage(false);
+        setLinkSaveBar({ isVisible: false, isSuccess: false });
+      }, 3000);
     }
   };
 

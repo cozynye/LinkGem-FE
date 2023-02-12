@@ -171,9 +171,6 @@ function Header() {
     }
   };
 
-  console.log('isLatestInfo');
-  console.log(isLatestInfo);
-
   useEffect(() => {
     setIsLogin(useLogin());
     if (isLogin) getLatestInfomation();

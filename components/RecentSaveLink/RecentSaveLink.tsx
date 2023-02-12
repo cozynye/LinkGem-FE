@@ -56,7 +56,7 @@ function RecentSaveLink({
 
   useEffect(() => {
     getUserInfo();
-  }, []);
+  }, [recentLink]);
 
   return (
     <RecentSaveLinkContainer>
