@@ -21,9 +21,6 @@ const SelectBoxPage = (props: {
 }) => {
   const [open, setOpen] = useState(false);
 
-  console.log('📗📗📗📗📗📗📗📗📗');
-  console.log(props);
-
   return (
     <SelectWrapper onClick={() => setOpen((prev) => !prev)}>
       {props.gembox?.name || '잼박스 선택'}{' '}

@@ -13,7 +13,6 @@ interface IPropsGemCount {
 const GemCount = (props: IPropsGemCount) => {
   const [count, setCount] = useState<number>(0);
   const boxRefetch = useRecoilValue(gemboxRefetch);
-  console.log('Dighdigh!!!!');
 
   const params: IPropsGemCount = {};
   if (props.isFavorites) params.isFavorites = props.isFavorites;

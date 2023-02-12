@@ -64,7 +64,7 @@ const Layout = (props: IPropsLayout) => {
   const [linkSaveBar, setLinkSaveBar] = useRecoilState(linkSaveState);
   const onCloseMessage = () => {
     // setIsVisibleMessage(false);
-    setLinkSaveBar({ ...linkSaveBar, isSuccess: false });
+    setLinkSaveBar({ ...linkSaveBar, isSuccess: false, isVisible: false });
   };
   return (
     <Wrapper>

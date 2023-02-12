@@ -78,12 +78,14 @@ interface LinkSaveSuccessBarProps {
 }
 
 export const LinkSaveSuccessBar = styled.div<LinkSaveSuccessBarProps>`
+  position: fixed;
+  margin: 0 auto;
+  bottom: 100px;
+  left: 0;
+  right: 0;
   display: ${(props) => (props.isVisibleMessage ? 'block' : 'none')};
-  margin-top: 75px;
   padding: 16px 24px;
   gap: 24px;
-  position: fixed;
-  top: 165px;
   width: ${(props) =>
     props.isSuccessLink ? '197px !important;' : '354px !important;'};
   height: 56px !important;
