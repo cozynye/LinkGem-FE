@@ -14,7 +14,10 @@ export default class MyDocument extends Document {
             charSet="utf-8"
           />
           <title>LINKGEM</title>
-          <meta name="description" content="나만의 링크 저장소 링크잼" />
+          <meta
+            name="description"
+            content="여기저기 흩어져있는 링크들을 이제 한 곳에서 관리하세요!"
+          />
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
@@ -29,13 +32,19 @@ export default class MyDocument extends Document {
             property="og:site_name"
             content="링크잼 - 나만의 링크 저장소 링크잼"
           />
-          <meta property="og:description" content="나만의 링크 저장소 링크잼" />
+          <meta
+            property="og:description"
+            content="여기저기 흩어져있는 링크들을 이제 한 곳에서 관리하세요!"
+          />
 
           <meta
             property="og:image"
             content="https://www.linkgem.co.kr/images/linkgem-ogimage.jpg"
           />
-          <meta property="og:article:author" content="링크잼" />
+           <meta
+            property="og:article:author"
+            content="링크잼 - 나만의 링크 저장소 링크잼"
+          />
           <link
             rel="apple-touch-icon"
             sizes="57x57"
