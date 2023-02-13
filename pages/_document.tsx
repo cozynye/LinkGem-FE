@@ -24,13 +24,13 @@ export default class MyDocument extends Document {
           />
           <meta
             property="og:title"
-            content="링크잼 - 나만의 링크 저장소 링크잼"
+            content="링크잼 - 나만의 링크 저장소"
           />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://www.linkgem.co.kr/" />
           <meta
             property="og:site_name"
-            content="링크잼 - 나만의 링크 저장소 링크잼"
+            content="링크잼 - 나만의 링크 저장소"
           />
           <meta
             property="og:description"
