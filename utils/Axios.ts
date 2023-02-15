@@ -71,6 +71,8 @@ Axios.interceptors.response.use(
         // TODO : reissue 케이스 추가해야함 , mygembox api 요청 500에러 여기에 캐치됨
         console.error('리프레쉬 토큰 발급 에러');
         console.log(error);
+        localStorage.clear();
+        window.location.href = '/';
         // if (
         //   error.response.status === 400 &&
         //   error.response.data.code === 'Bad Request'
@@ -97,17 +99,13 @@ Axios.interceptors.response.use(
         // } else {
         //   console.log(error);
         // }
-        localStorage.clear();
-        window.location.href = '/';
       }
     } else {
-      localStorage.clear();
-      window.location.href = '/';
+      // localStorage.clear();
+      // window.location.href = '/';
     }
     return Promise.reject(error);
   }
 );
 
 export default Axios;
-
-
