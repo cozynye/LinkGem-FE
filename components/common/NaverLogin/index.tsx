@@ -42,7 +42,7 @@ export default function LoginNaver() {
       <div id="naverIdLogin" style={{ display: 'none' }} ref={naverRef} />
 
       <a
-        href={`https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=GaA68400epOsIRyJ4C3r&redirect_uri=${process.env.NEXT_PUBLIC_BASE_URL}oauth/naver/callback`}
+        href={`https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}&redirect_uri=${process.env.NEXT_PUBLIC_BASE_URL}oauth/naver/callback`}
         rel="noreferrer"
         style={{ textDecoration: 'none' }}
       >

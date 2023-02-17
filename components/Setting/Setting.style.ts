@@ -211,6 +211,8 @@ export const SettingDisabledInfo = styled.div<{ type: string }>`
 
 export const SettingImageBox = styled.div`
   position: relative;
+  width: 140px;
+  height: 140px;
   img {
     transition: 0.4s;
   }
