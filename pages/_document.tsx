@@ -13,25 +13,24 @@ export default class MyDocument extends Document {
             src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js"
             charSet="utf-8"
           />
-          <title>LINKGEM</title>
+          <title>나만의 링크 저장소 링크잼</title>
           <meta
             name="description"
-            content="여기저기 흩어져있는 링크들을 이제 한 곳에서 관리하세요!"
+            content="여기저기 흩어져있던 링크들을 카테고리별로 쉽게 저장하고 빠르게 찾아보세요"
           />
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
           />
           <meta
-            property="og:title"
-            content="링크잼 - 나만의 링크 저장소"
+            name="keywords"
+            content="링크저장, 링크관리, 링크잼, 링크젬, linkgem, gembox, 잼박스"
           />
+          <meta name="author" content="linkgem" />
+          <meta property="og:title" content="링크잼 - 나만의 링크 저장소" />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://www.linkgem.co.kr/" />
-          <meta
-            property="og:site_name"
-            content="링크잼 - 나만의 링크 저장소"
-          />
+          <meta property="og:site_name" content="링크잼 - 나만의 링크 저장소" />
           <meta
             property="og:description"
             content="여기저기 흩어져있는 링크들을 이제 한 곳에서 관리하세요!"
@@ -41,7 +40,7 @@ export default class MyDocument extends Document {
             property="og:image"
             content="https://www.linkgem.co.kr/images/linkgem-ogimage.jpg"
           />
-           <meta
+          <meta
             property="og:article:author"
             content="링크잼 - 나만의 링크 저장소 링크잼"
           />
@@ -118,6 +117,10 @@ export default class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#ffffff" />
           <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
           <meta name="theme-color" content="#ffffff" />
+          <meta
+            name="naver-site-verification"
+            content="2e4416a511dd1cbb0085415078a3dad93e020a25"
+          />
         </Head>
         <body>
           <div id="portal" />
