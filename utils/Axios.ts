@@ -69,10 +69,10 @@ Axios.interceptors.response.use(
         return axios(originalRequest);
       } catch (error: any) {
         // TODO : reissue 케이스 추가해야함 , mygembox api 요청 500에러 여기에 캐치됨
-        console.error('리프레쉬 토큰 발급 에러');
+        console.error('액세스 토큰 발급 에러');
         console.log(error);
-        localStorage.clear();
-        window.location.href = '/';
+        // localStorage.clear();
+        // window.location.href = '/';
         // if (
         //   error.response.status === 400 &&
         //   error.response.data.code === 'Bad Request'
