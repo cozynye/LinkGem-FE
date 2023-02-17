@@ -318,10 +318,7 @@ export default function Setting() {
             <SettingLineBox>
               <SettingCategory>프로필 사진</SettingCategory>
               <SettingImageBox>
-                <SettingImage
-                  src={imgUrl || 'images/test.jpeg'}
-                  alt="setting-image"
-                />
+                <SettingImage src={imgUrl} alt="setting-image" />
                 <SettingImageHover onClick={uploadImage}>
                   <div>
                     <img
